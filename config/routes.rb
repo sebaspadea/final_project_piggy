@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' } 
   root to: 'pages#home'
 
-  get 'user', to: 'users#index'
+  get 'user', to: 'users#show'
   get 'expenses/new', to: 'expenses#new'
   post 'expenses', to: 'expenses#create'
   get 'expenses', to: 'expenses#index'
