@@ -6,13 +6,15 @@ class ExpensesController < ApplicationController
 
 
   def new
-    @expence = Expense.new
+    @expense = Expense.new
+
   end
 
   def create
-    @expense = Expense.find(params[:expense_id])
+    @expense = Expense.create(expense_params)
+    @expense.user = current_user
     if @expense.save!
-      redirect_to user_path(current_user)
+      redirect_to expenses_path
     else
       render :new
     end

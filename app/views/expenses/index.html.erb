@@ -1,24 +1,5 @@
 
 <div class="container-fluid ">
-  <div class="container">
-  <div class="text-center ">
-    <h2 class="fonts"><strong>Welcome</strong> <%= @user.first_name %> <%= @user.last_name %></h2>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card my-3">
-        <div class="card-body">
-          <h3 class="card-title">My personal info</h3>
-          <br>
-          <h6>Username: <%= @user.username %></h6>
-          <h6>Mail: <%= @user.email %></h6>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
@@ -27,14 +8,14 @@
            <ul lass="list-group">
             <% if @expenses.any? %>
               <% @expenses.each do |expense| %>
-                <li class="list-group-item"><%= expense.name %></li>
+                <li class="list-group-item"><%= expense.category %></li>
+                <li class="list-group-item"><%= expense.amount %></li>
               <% end %>
             <% else %>
-              <li>You still have no experiences</li>
+              <li>You still have no expenses</li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-  </div>
 </div>
