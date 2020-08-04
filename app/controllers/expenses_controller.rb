@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
 
 
   def new
-    @expence = Experience.new
+    @expence = Expense.new
   end
 
   def create
