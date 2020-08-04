@@ -27,12 +27,14 @@
            <ul lass="list-group">
             <% if @expenses.any? %>
               <% @expenses.each do |expense| %>
-              <li class="list-group-item"><%= expense.name %>
-              <% if expenses.empty? %>
-              <li>You still have no experiences</li>
+                <li class="list-group-item"><%= expense.name %></li>
               <% end %>
+            <% else %>
+              <li>You still have no experiences</li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
   </div>
+</div>
