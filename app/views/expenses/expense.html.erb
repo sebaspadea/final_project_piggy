@@ -1,0 +1,15 @@
+<div class="container-fluid">
+<h1>Expenses</h1>
+
+
+
+    <%= simple_form_for @expense do |f| %>
+      <%= f.input :name,  :label => "Ingresa tus gastos:",placeholder:"Ingresa tus gastos", class: "exs" %>
+      <%= f.input :category, collection: Expense::CATEGORY %>
+      <%= f.input :description,  :label => "Descripcion de los gastos:", placeholder:"Descripcion de los gastos", class: "exs" %>
+      <%= f.input :price,  :label => "Precio de su experiencia:",placeholder:"Precio de su experiencia:", class: "exs" %>
+       <%= f.input :amount,  :label => "Suma",placeholder:"suma total de gastos", class: "exs" %>
+      <%= f.submit "Agregar", class:"btn btn-dark" %>
+
+    <% end %>
+</div>
