@@ -1,1 +1,50 @@
 // Specific CSS for your home-page
+.primera-vista {
+  margin-top: 200px;
+  height: 55vh;
+
+    h1 {
+      font-family: "Work Sans";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 80px;
+      line-height: 110%;
+      /* or 88px */
+      };
+
+      p {
+        width: 224px;
+        height: 200px;
+        left: 148px;
+        top: 369px;
+
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 160%;
+        /* or 29px */
+
+        font-feature-settings: 'liga' off;
+
+        /* 1 */
+
+        color: #4B5D68;
+      };
+  img {
+    position: absolute;
+    width: 532px;
+    height: 489px;
+    left: 900px;
+    top: 217px;
+
+  }
+}
+
+.separador-verde {
+  width: 100%;
+  height: 99px;
+  background: rgba(76, 140, 232, 0.46);
+
+}
+
