@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.primera-vista {
+  margin-top: 200px;
+  height: 100vh;
+    h1 {
+      font-family: "Work Sans";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 80px;
+      line-height: 110%;
+      /* or 88px */
+      };
+
+      p {
+        width: 224px;
+        height: 200px;
+        left: 148px;
+        top: 369px;
+
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 160%;
+        /* or 29px */
+
+        font-feature-settings: 'liga' off;
+
+        /* 1 */
+
+        color: #4B5D68;
+      }
+}
