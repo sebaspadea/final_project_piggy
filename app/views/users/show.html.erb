@@ -36,11 +36,7 @@
               <div class="my-2 p-2 border rounded-lg">
                 <h5 class="card-title">$<%= expense.amount %> - <%= expense.category %></h5>
                 <p class="card-text"><%= expense.description %></p>
-                <% if expense.saving_id != nil %>
-                  <p class="card-text font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
-                <% else %>
-                  <p class="card-text font-weight-lighter">Gasto no ahorrado</p>
-                <% end %>
+                <p class="card-text font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
               </div>
             <% end %>
           <% else %>

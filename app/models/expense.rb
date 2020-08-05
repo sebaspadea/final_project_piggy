@@ -5,5 +5,4 @@ class Expense < ApplicationRecord
   validates :category, inclusion: { in: CATEGORY }
   validates :amount, presence: true, numericality: { only_integer: true }
   validates :description, length: { maximum: 30 }
-
 end
