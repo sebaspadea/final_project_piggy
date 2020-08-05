@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :saving_percentage, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 5, less_than_or_equal_to: 100 }
-
+  has_many :savings, dependent: :destroy
+  has_many :expenses, dependent: :destroy
 end
