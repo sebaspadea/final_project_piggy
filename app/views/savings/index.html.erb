@@ -8,7 +8,8 @@
            <ul lass="list-group">
             <% if @expenses.any? %>
               <% @expenses.each do |expense| %>
-                <li class="list-group-item"><%= expense.category %> $<%= expense.amount %></li>
+                <li class="list-group-item"><%= expense.category %></li>
+                <li class="list-group-item"><%= expense.amount %></li>
               <% end %>
             <% else %>
               <li>You still have no expenses</li>

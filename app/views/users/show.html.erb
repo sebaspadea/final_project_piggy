@@ -1,1 +1,52 @@
-<h1>Hola <%= @user.username %></h1>
+<div class="container-fluid">
+  <h1>Bienvenido <%= @user.username.capitalize %></h1>
+  <div class="row my-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Mis ultimos ahorros
+        </div>
+        <div class="card-body">
+          <% if @savings.any? %>
+            <% @savings.each do |saving| %>
+              <div class="my-2 p-2 border rounded-lg">
+                <h5 class="card-title">$<%= saving.total_amount %> - <%= saving.goal %></h5>
+                <p class="card-text"><%= saving.goal_description %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <div>
+              <h5 class="card-text my-2">Aun no tienes ahorros</h5>
+            </div>
+          <% end %>
+          <%= link_to "Ver mis ahorros", savings_path, class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Mis ultimos gastos
+        </div>
+        <div class="card-body">
+          <% if @expenses.any? %>
+            <% @expenses.each do |expense| %>
+              <div class="my-2 p-2 border rounded-lg">
+                <h5 class="card-title">$<%= expense.amount %> - <%= expense.category %></h5>
+                <p class="card-text"><%= expense.description %></p>
+                <p class="card-text font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <div>
+              <h5 class="card-text">Aun no has cargado ningun gasto</h5>
+            </div>
+          <% end %>
+          <%= link_to "Todos mis gastos", expenses_path, class:"btn btn-danger"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
