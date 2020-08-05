@@ -5,4 +5,5 @@ class Saving < ApplicationRecord
   validates :goal, numericality: { only_integer: true }
   validates :goal_description, length: { maximum: 50 }
 
+
 end
