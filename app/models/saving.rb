@@ -3,6 +3,7 @@ class Saving < ApplicationRecord
   STATUS = %w(Open Broken)
   validates :status, inclusion: { in: STATUS }
   validates :goal, numericality: { only_integer: true }
-  validates :goal_description, length: { maximum: 20 }
-  has_many :expenses
+  validates :goal_description, length: { maximum: 50 }
+
+
 end

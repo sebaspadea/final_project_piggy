@@ -12,8 +12,15 @@
   </head>
 
   <body>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= render('shared/navbar') %>
+        <!-- END OF NAV BAR -->
 
-  <%= render('shared/navbar') %>
-    <%= yield %>
+        <%= yield %>
+     </div>
+    <%= render('shared/footer') %>
+  </div>
+
   </body>
 </html>
