@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   post 'expenses', to: 'expenses#create'
   get 'expenses', to: 'expenses#index'
   get 'savings', to: 'savings#index'
-  get 'user/edit', to: 'savings#edit'
+  get 'savings/new', to: 'savings#new', as: :new_saving
+  post 'savings', to: 'savings#create'
+  patch 'savings', to: 'savings#update'
+  get 'user/edit', to: 'users#edit'
   patch 'user', to: 'users#update'
 
 
