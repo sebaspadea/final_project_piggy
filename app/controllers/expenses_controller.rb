@@ -13,7 +13,11 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.user = current_user
+    @saving = current_user.savings.last
+    @expense.saving = @saving
     if @expense.save
+      @saving.total_amount += (@expense.amount * current_user.saving_percentage) / 100
+      @saving.save
       if params[:test].nil?
         redirect_to expenses_path
         return
