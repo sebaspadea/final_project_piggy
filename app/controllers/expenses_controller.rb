@@ -13,8 +13,13 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.create(expense_params)
     @expense.user = current_user
-    if @expense.save!
-      redirect_to expenses_path
+    if @expense.save
+      if params[:test].nil?
+        redirect_to expenses_path
+        return
+      else
+        redirect_to expenses_new_path
+      end
     else
       render :new
     end
