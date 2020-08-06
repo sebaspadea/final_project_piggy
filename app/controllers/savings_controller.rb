@@ -1,7 +1,8 @@
 class SavingsController < ApplicationController
 
   def index
-    @savings = Saving.all
+    @saving = current_user.savings.last
+    @savings = current_user.savings
   end
 
   def new
@@ -19,7 +20,7 @@ class SavingsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def saving_params
