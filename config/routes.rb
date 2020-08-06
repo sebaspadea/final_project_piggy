@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'savings', to: 'savings#index'
   get 'savings/new', to: 'savings#new', as: :new_saving
   post 'savings', to: 'savings#create'
+  get 'savings/edit', to: 'savings#edit'
   patch 'savings', to: 'savings#update'
+  patch "savings/break", to: "savings#break_chanchito", as: :break_chanchito
   get 'user/edit', to: 'users#edit'
   patch 'user', to: 'users#update'
 
