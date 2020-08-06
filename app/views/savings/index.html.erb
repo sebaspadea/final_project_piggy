@@ -1,22 +1,30 @@
-<div class="container-fluid">
-
-  <div class="card">
-    <h1 class="card-title">Mi chanchito</h1>
-    <h3>Finde a Mardel</h3>
-    <div>
-      <p>OBJETIVO</p>
-      <p>TOTAL AHORRADO</p>
-    <button>editar</button>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <h1 class="card-title">Mi chanchito</h1>
+          <h3><%= @saving.goal_description%></h3>
+            <div class=" my-3">
+              <p>OBJETIVO: $<%= @saving.goal%></p>
+              <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
+              <button>editar</button>
+            </div>
+      </div>
     </div>
   </div>
 
-  <div>
-    <img src= "https://previews.123rf.com/images/amasterpics123/amasterpics1231705/amasterpics123170500043/79175334-3d-porcentaje-rojo-o-signo-aislado-sobre-fondo-blanco-con-sombra-representaci%C3%B3n-3d-.jpg" alt="">
+  <div class="row">
+    <div class="col-md-6">
+
+    </div>
   </div>
 
-  <div class="card">
-    <button>Romper cochi</button>
-    <button>ir a resumen</button>
-  </div>
+
+      <button>Romper cochi</button>
+      <%= link_to "volver atras", user_path, class: "btn-flat" %>
+
 
 </div>
+
+
+
