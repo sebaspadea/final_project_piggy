@@ -7,7 +7,7 @@
           Resumen de movimientos
         </div>
         <div class="card-body">
-        Aca va el grafico 
+        <%= column_chart Expense.group_by_day_of_week(:created_at, format: "%a").count %>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-md-12">
       <div class="card">
@@ -79,7 +79,7 @@
                 </div>
                 <div>
                   <p class="card-text"><%= expense.category %></p>
-                </div> 
+                </div>
               </div>
             <% end %>
           <% else %>
@@ -168,7 +168,7 @@
           <div class="form-actions">
             <button type="button" class="btn btn-secondary pt-2" data-dismiss="modal">Close</button>
             <%= f.button :submit, "Update", class: "btn btn-flat pt-2" %>
-          </div> 
+          </div>
         </div>
       <% end %>
     </div>

@@ -1,3 +1,5 @@
+require "groupdate"
+
 class ExpensesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
