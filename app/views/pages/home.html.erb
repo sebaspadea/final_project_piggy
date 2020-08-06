@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="primera-vista">
-    <div class="info">
-      <h1>Piggy</h1>
-      <br>
-      <p>Somos una plataforma que busca ayudarte a ahorrar de una forma  automatica, simple y segura.
-      Descubri una nueva forma de ahorrar!</p>
-      <%= link_to "Registrate!", new_user_registration_path , class: "bt btn-flat" %>
+
+    <div class="row primera-vista py-5 align-items-center">
+      <div class="col-6 col-md-6">
+        <div class="info">
+          <h1>Piggy</h1>
+          <br>
+          <p>Somos una plataforma que busca ayudarte a ahorrar de una forma  automatica, simple y segura.
+          Descubri una nueva forma de ahorrar!</p>
+          <%= link_to "Registrate!", new_user_registration_path , class: "bt btn-flat" %>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <img src="https://image.freepik.com/vector-gratis/icono-ahorro-dinero-piggy-dinero-pila-monedas-icono-empresarial-aislado_138676-513.jpg" alt="" class="img1">
+      </div>
     </div>
-      <img src="https://image.freepik.com/vector-gratis/icono-ahorro-dinero-piggy-dinero-pila-monedas-icono-empresarial-aislado_138676-513.jpg" alt="" class="img1">
-  </div>
+
 </div>
 
 <div class="separador-verde"></div>
@@ -17,28 +23,40 @@
   <div class="segunda-vista">
     <h2>Que podes lograr con Piggy?</h2>
     <br>
-      <div class="cards">
-          <div class="card">
-            <h3>Hacer un seguimiento de tus compras</h3>
-            <p>Cargas todas tus compras, y nosotros te las mostramos de una manera sencilla</p>
-            <br>
-            <a href="">Ver mas</a>
+      <div class="cards text-center">
+        <div class="row row-cols-1 row-cols-md-3 py-5">
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Hacer un seguimiento de tus compras</h5>
+                <p class="card-text text-center">Cargas todas tus compras, y nosotros te las mostramos de una manera sencilla</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Elegir un porcentaje de cuanto queres ahorrar!</h3>
-            <p>Elegi cuanto queres ahorrar sobre tus gastos, 10%? 15%? 20%? Escribi cuanto, y nosotros te decimos cuanta plata meter en tu chanchito</p>
-            <br>
-            <a href="">Ver mas</a>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Elegir un porcentaje de cuanto queres ahorrar!</h5>
+                <p class="card-text text-center">10%? 15%? 20%? Escribi cuanto, y nosotros te decimos cuanta plata meter en tu chanchito</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Ahorrar</h3>
-            <p>A partir del porcentaje que nos das, y luego de apretar el boton AHORRA en el gasto, el porcentaje que establecista hara que se te guarde en un chanchito virtual,  </p>
-            <br>
-            <a href="">Ver mas</a>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Ahorrar!</h5>
+                <p class="card-text text-center">A partir del porcentaje que estableciste, se te guardara dinero en un chanchito virtual, podes setear un objetivo y cuando el chanchito este lleno romperlo!</p>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
   </div>
 </div>
+
 
 
 
@@ -46,7 +64,7 @@
 
 
 <div class="container">
-  <div class="contacto-vista">
+  <div class="contacto-vista py-5">
     <div class="info">
       <h3>Contactanos</h3>
       <p>Descripcion</p>
@@ -56,7 +74,7 @@
           <label for="exampleInputPassword1">Full name</label>
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
         </div>
-         <div class="form-group">
+        <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
