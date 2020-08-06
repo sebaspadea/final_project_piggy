@@ -7,7 +7,16 @@
           Resumen de movimientos
         </div>
         <div class="card-body">
-        <%= column_chart Expense.group_by_day_of_week(:created_at, format: "%a").count %>
+          <div class="row d-flex justify-content-between">
+            <div class="col-md-6">
+              <h6 class="card-title my-1">Gastos</h6>
+              <%= pie_chart @expenses.group(:category).count %>
+            </div>
+            <div class="col-md-6 border-left-dark">
+              <h6 class="card-title my-1">Ahorros</h6>
+              <%= column_chart @savings.group_by_day_of_week(:created_at, format: "%a").sum(:total_amount) %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,7 +37,7 @@
           <h5 class="card-title"> Nombre: <%= @user.first_name %></h5>
           <h5 class="card-title"> Apellido: <%= @user.last_name %></h5>
           <h5 class="card-title"> Email: <%= @user.email %></h5>
-          <h5 class="card-title"> Porcentaje de ahorro: %<%= @user.saving_percentage %></h5>
+          <h5 class="card-title"> Porcentaje de ahorro: <%= @user.saving_percentage %>%</h5>
         </div>
       </div>
     </div>
@@ -45,12 +54,17 @@
         </div>
         <div class="card-body">
           <% if @savings.any? %>
-            <% @savings.each do |saving| %>
-              <div class="my-2 p-2 border rounded-lg">
-                <p class="card-text"><%= saving.goal_description %></p>
-                <h5 class="card-title">$<%= saving.total_amount %> / $<%= saving.goal %></h5>
-              </div>
-            <% end %>
+              <% if @savings.last.status == "Open" %>
+                <div class="my-2 p-2 border rounded-lg">
+                  <p class="card-text"><%= @savings.last.goal_description %></p>
+                  <h5 class="card-title">$<%= @savings.last.total_amount %> / $<%= @savings.last.goal %></h5>
+                </div>
+              <% else %>
+                <div class="my-2 p-2 border rounded-lg">
+                  <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
+                  <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
+                </div>
+              <% end %>
           <% else %>
             <div>
               <h5 class="card-text my-2">Aun no tienes ahorros</h5>
@@ -73,18 +87,18 @@
           <% if @expenses.any? %>
             <% @expenses.last(10).each do |expense| %>
               <div class="my-2 p-2 border rounded-lg">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between mx-2">
                   <h5 class="card-title">$<%= expense.amount %></h5>
                   <p class="card-title font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
                 </div>
                 <div>
-                  <p class="card-text"><%= expense.category %></p>
+                  <p class="card-text mx-2"><%= expense.category %></p>
                 </div>
               </div>
             <% end %>
           <% else %>
             <div>
-              <h5 class="card-text">Aun no has cargado ningun gasto</h5>
+              <h5 class="card-text mx-2">Aun no has cargado ningun gasto</h5>
             </div>
           <% end %>
         </div>

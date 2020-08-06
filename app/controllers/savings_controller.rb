@@ -1,12 +1,28 @@
 class SavingsController < ApplicationController
+  before_action :set_saving, only: [:index, :edit, :update, :break_chanchito]
 
   def index
-    @saving = current_user.savings.last
     @savings = current_user.savings
   end
 
   def new
     @saving = Saving.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @saving.update(saving_params)
+      redirect_to savings_path
+    else
+      render 'edit'
+    end
+  end
+
+  def break_chanchito
+    @saving.update(status: "Broken")
+    redirect_to user_path
   end
 
   def create
@@ -27,4 +43,7 @@ class SavingsController < ApplicationController
     params.require(:saving).permit(:goal, :goal_description)
   end
 
+  def set_saving
+    @saving = current_user.savings.last
+  end
 end
