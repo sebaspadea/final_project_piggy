@@ -1,25 +1,13 @@
 <div class="container-fluid">
-  <h1>Bienvenido <%= @user.username.capitalize %></h1>
-  <div class="row my-3">
+  <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+    <div class="row my-3">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          Mis ultimos ahorros
+          Resumen de movimientos
         </div>
         <div class="card-body">
-          <% if @savings.any? %>
-            <% @savings.each do |saving| %>
-              <div class="my-2 p-2 border rounded-lg">
-                <h5 class="card-title">$<%= saving.total_amount %> - <%= saving.goal %></h5>
-                <p class="card-text"><%= saving.goal_description %></p>
-              </div>
-            <% end %>
-          <% else %>
-            <div>
-              <h5 class="card-text my-2">Aun no tienes ahorros</h5>
-            </div>
-          <% end %>
-          <%= link_to "Ver mis ahorros", savings_path, class:"btn btn-success"%>
+        Aca va el grafico 
         </div>
       </div>
     </div>
@@ -28,15 +16,70 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          Mis ultimos gastos
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="mt-2">Datos Personales</h6>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#staticBackdrop">
+              Editar Datos
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> Usuario: <%= @user.username %></h5>
+          <h5 class="card-title"> Nombre: <%= @user.first_name %></h5>
+          <h5 class="card-title"> Apellido: <%= @user.last_name %></h5>
+          <h5 class="card-title"> Email: <%= @user.email %></h5>
+          <h5 class="card-title"> Porcentaje de ahorro: %<%= @user.saving_percentage %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="mt-2">Chanchito Actual</h6>
+            <%= link_to "Ver mis ahorros", savings_path, class:"btn btn-success btn-sm text-decoration-none"%>
+          </div>
+        </div>
+        <div class="card-body">
+          <% if @savings.any? %>
+            <% @savings.each do |saving| %>
+              <div class="my-2 p-2 border rounded-lg">
+                <p class="card-text"><%= saving.goal_description %></p>
+                <h5 class="card-title">$<%= saving.total_amount %> / $<%= saving.goal %></h5>
+              </div>
+            <% end %>
+          <% else %>
+            <div>
+              <h5 class="card-text my-2">Aun no tienes ahorros</h5>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="mt-2">Mis ultimos gastos</h6>
+            <%= link_to "Todos mis gastos", expenses_path, class:"btn btn-danger btn-sm text-decoration-none"%>
+          </div>
         </div>
         <div class="card-body">
           <% if @expenses.any? %>
-            <% @expenses.each do |expense| %>
+            <% @expenses.last(10).each do |expense| %>
               <div class="my-2 p-2 border rounded-lg">
-                <h5 class="card-title">$<%= expense.amount %> - <%= expense.category %></h5>
-                <p class="card-text"><%= expense.description %></p>
-                <p class="card-text font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <h5 class="card-title">$<%= expense.amount %></h5>
+                  <p class="card-title font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+                </div>
+                <div>
+                  <p class="card-text"><%= expense.category %></p>
+                </div> 
               </div>
             <% end %>
           <% else %>
@@ -44,9 +87,90 @@
               <h5 class="card-text">Aun no has cargado ningun gasto</h5>
             </div>
           <% end %>
-          <%= link_to "Todos mis gastos", expenses_path, class:"btn btn-danger"%>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for @user do |f| %>
+        <div class="modal-body">
+          <div id="formulario" class="container-fluid text-center">
+            <div class="form-inputs">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.input :first_name,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "Nombre" } %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.input :last_name,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "Apellido" } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :username,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "Nombre de usuario" } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :email,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "Mail" } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" },
+                    label: "New Password" %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-around">
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary pt-2" data-dismiss="modal">Close</button>
+            <%= f.button :submit, "Update", class: "btn btn-flat pt-2" %>
+          </div> 
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
