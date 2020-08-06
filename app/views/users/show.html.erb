@@ -7,7 +7,7 @@
           Resumen de movimientos
         </div>
         <div class="card-body">
-        <%= column_chart Expense.group_by_day_of_week(:created_at, format: "%a").count %>
+          <%= column_chart @expenses.group_by_day_of_week(:created_at, format: "%a").sum(:amount) %>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <h5 class="card-title"> Nombre: <%= @user.first_name %></h5>
           <h5 class="card-title"> Apellido: <%= @user.last_name %></h5>
           <h5 class="card-title"> Email: <%= @user.email %></h5>
-          <h5 class="card-title"> Porcentaje de ahorro: %<%= @user.saving_percentage %></h5>
+          <h5 class="card-title"> Porcentaje de ahorro: <%= @user.saving_percentage %>%</h5>
         </div>
       </div>
     </div>
@@ -73,18 +73,18 @@
           <% if @expenses.any? %>
             <% @expenses.last(10).each do |expense| %>
               <div class="my-2 p-2 border rounded-lg">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between mx-2">
                   <h5 class="card-title">$<%= expense.amount %></h5>
                   <p class="card-title font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
                 </div>
                 <div>
-                  <p class="card-text"><%= expense.category %></p>
+                  <p class="card-text mx-2"><%= expense.category %></p>
                 </div>
               </div>
             <% end %>
           <% else %>
             <div>
-              <h5 class="card-text">Aun no has cargado ningun gasto</h5>
+              <h5 class="card-text mx-2">Aun no has cargado ningun gasto</h5>
             </div>
           <% end %>
         </div>
