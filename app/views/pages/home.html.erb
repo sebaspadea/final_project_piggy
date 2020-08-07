@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="primera-vista">
-    <div class="info">
-      <h1>Piggy</h1>
-      <br>
-      <p>Somos una plataforma que busca ayudarte a ahorrar de una forma  automatica, simple y segura.
-      Descubri una nueva forma de ahorrar!</p>
-      <%= link_to "Registrate!", new_user_registration_path , class: "bt btn-flat" %>
+
+    <div class="row primera-vista py-5 align-items-center">
+      <div class="col-7 col-md-6">
+        <div class="info">
+          <h1>Piggy</h1>
+          <br>
+          <p>Somos una plataforma que busca ayudarte a ahorrar dinero de una forma  automatica, simple y segura.
+          Descubri una nueva forma de ahorrar!</p>
+          <%= link_to "Registrate!", new_user_registration_path , class: "bt btn-flat" %>
+        </div>
+      </div>
+      <div class="col-5 col-md-6">
+        <img src="https://icons-for-free.com/iconfiles/png/512/finance+icicle+piggy+bank-131979031585103517.png" alt="" class="img1">
+      </div>
     </div>
-      <img src="https://image.freepik.com/vector-gratis/icono-ahorro-dinero-piggy-dinero-pila-monedas-icono-empresarial-aislado_138676-513.jpg" alt="" class="img1">
-  </div>
+
 </div>
 
 <div class="separador-verde"></div>
@@ -17,28 +23,40 @@
   <div class="segunda-vista">
     <h2>Que podes lograr con Piggy?</h2>
     <br>
-      <div class="cards">
-          <div class="card">
-            <h3>Hacer un seguimiento de tus compras</h3>
-            <p>Cargas todas tus compras, y nosotros te las mostramos de una manera sencilla</p>
-            <br>
-            <a href="">Ver mas</a>
+      <div class="cards text-center">
+        <div class="row row-cols-1 row-cols-md-3 py-5">
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="https://mk0zezosobuapu92jg73.kinstacdn.com/wp-content/themes/Dcom/images/calculator-hero.png" class="card-img-top py-5" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Hacer un seguimiento de tus compras</h5>
+                <p class="card-text text-center">Cargas todas tus compras y nosotros te las mostramos de una manera sencilla</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Elegir un porcentaje de cuanto queres ahorrar!</h3>
-            <p>Elegi cuanto queres ahorrar sobre tus gastos, 10%? 15%? 20%? Escribi cuanto, y nosotros te decimos cuanta plata meter en tu chanchito</p>
-            <br>
-            <a href="">Ver mas</a>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="https://static.vecteezy.com/system/resources/previews/000/378/512/non_2x/percentage-vector-icon.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Elegir un porcentaje de cuanto queres ahorrar!</h5>
+                <p class="card-text text-center">10%? 15%? 20%? Escribi cuanto y nosotros te decimos cuanta plata guardar en tu chanchito</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Ahorrar</h3>
-            <p>A partir del porcentaje que nos das, y luego de apretar el boton AHORRA en el gasto, el porcentaje que establecista hara que se te guarde en un chanchito virtual,  </p>
-            <br>
-            <a href="">Ver mas</a>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="https://blog.axend.io/wp-content/uploads/2019/04/ahorro-Caja-Manzanillo.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Ahorrar!</h5>
+                <p class="card-text text-center">A partir del porcentaje que estableciste, se te guardara dinero en un chanchito virtual, podes establecer un objetivo y cuando el chanchito este lleno romperlo!</p>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
   </div>
 </div>
+
 
 
 
@@ -46,31 +64,28 @@
 
 
 <div class="container">
-  <div class="contacto-vista">
+  <div class="contacto-vista py-5">
     <div class="info">
       <h3>Contactanos</h3>
       <p>Descripcion</p>
       <form>
 
         <div class="form-group">
-          <label for="exampleInputPassword1">Full name</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
+          <label for="exampleInputName1">Nombre completo</label>
+          <input type="name" class="form-control" id="exampleInputName1" placeholder="Ingresa tu nombre">
         </div>
-         <div class="form-group">
+        <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email">
+          <small id="emailHelp" class="form-text text-muted">Esta informacion es privada para tu seguridad.</small>
         </div>
          <div class="form-group">
-          <label for="exampleInputEmail1">Phone</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your phone with anyone else.</small>
+          <label for="exampleInputEmail1">Telefono</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Ingresa tu telefono">
+          <small id="emailHelp" class="form-text text-muted">Esta informacion es privada para tu seguridad.</small>
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
       <img src="" alt="" class="img3">

@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">My Expenses</h3>
+          <h3 class="card-title">Mis Gastos</h3>
           <br>
            <ul lass="list-group">
             <% if @expenses.any? %>
@@ -11,7 +11,7 @@
                 <li class="list-group-item"><%= expense.category %> $<%= expense.amount %></li>
               <% end %>
             <% else %>
-              <li>You still have no expenses</li>
+              <li>Aun no tienes gastos</li>
             <% end %>
           </ul>
         </div>

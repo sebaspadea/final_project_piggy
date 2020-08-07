@@ -1,16 +1,13 @@
 // Specific CSS for your home-page
 .primera-vista {
-  margin-top: 200px;
-  height: 55vh;
-
-    h1 {
+  h1 {
       font-family: "Work Sans";
       font-style: normal;
       font-weight: 800;
       font-size: 80px;
       line-height: 110%;
       /* or 88px */
-      };
+      }
 
       p {
         width: 224px;
@@ -30,13 +27,12 @@
         /* 1 */
 
         color: #4B5D68;
-      };
+      }
   .img1 {
-    position: absolute;
-    width: 532px;
-    height: 489px;
-    left: 1100px;
-    top: 217px;
+
+    width: 100%;
+    height: auto;
+
 
   }
 }
@@ -48,14 +44,6 @@
 }
 
 .segunda-vista {
-  margin-top: 200px;
-  height: 100vh;
-   .img2 {
-      position: absolute;
-      width: 532px;
-      height: 489px;
-      left: 600px;
-   };
 
     h2 {
       font-family: "Work Sans";
@@ -65,20 +53,18 @@
       line-height: 110%;
       margin-top: 70px;
       /* or 88px */
-      };
-
-
+      }
 
       .cards{
         display: flex;
         position: relative;
         justify-content: space-between;
         margin-top: 50px;
+
       }
       .card {
-
-        width: 300px;
-        height: 600px;
+      word-wrap: break-word;
+      word-break: break-word;
 
         h3 {
 
@@ -88,28 +74,19 @@
           font-size: 20px;
           line-height: 110%;
 
-        };
+        }
 
         p {
-          width: 224px;
-          height: 200px;
-          left: 148px;
-          top: 369px;
+
 
           font-family: "Poppins";
           font-style: normal;
           font-weight: normal;
           font-size: 18px;
           line-height: 160%;
-          /* or 29px */
-
-          font-feature-settings: 'liga' off;
-
-          /* 1 */
-
           color: #4B5D68;
-        };
-      };
+          }
+        }
 }
 
 
@@ -121,8 +98,7 @@
 
 
 .contacto-vista {
-  margin-top: 200px;
-  height: 100vh;
+
   h3 {
     font-family: "Work Sans";
     font-style: normal;
