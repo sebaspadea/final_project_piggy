@@ -24,6 +24,7 @@ class ExpensesController < ApplicationController
         redirect_to expenses_path
         return
       else
+        flash[:success] = "Nuevo gasto agregado!"
         redirect_to expenses_new_path
       end
     else
