@@ -6,10 +6,8 @@ class ExpensesController < ApplicationController
     @expenses = current_user.expenses
   end
 
-
   def new
     @expense = Expense.new
-
   end
 
   def create
@@ -31,11 +29,23 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def edit
+    @expense = Expense.find(params[:id])
+  end
+
+  def update
+    @expense = Expense.find(params[:id])
+
+    if @expense.update(expense_params)
+      redirect_to expenses_path
+    else
+      render 'edit'
+    end
+  end
 
   private
 
-   def expense_params
-   params.require(:expense).permit(:category, :amount, :description)
+  def expense_params
+    params.require(:expense).permit(:category, :amount, :description)
   end
-
 end

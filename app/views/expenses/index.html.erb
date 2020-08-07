@@ -1,20 +1,31 @@
-
 <div class="container-fluid ">
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
+
           <h3 class="card-title">Mis Gastos</h3>
+
           <br>
-           <ul lass="list-group">
+           <ul lass="list-group ">
             <% if @expenses.any? %>
               <% @expenses.each do |expense| %>
-                <li class="list-group-item"><%= expense.category %> $<%= expense.amount %></li>
+                <li class="list-group-item d-flex justify-content-between"><%= expense.category %> $<%= expense.amount %> <br>
+                  <%= expense.description %>
+                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
+                    Editar
+                  </button>
+                </li>
+                  <%= render "expense_modal_edit", expense: expense %>
               <% end %>
             <% else %>
+
               <li>Aun no tienes gastos</li>
+
             <% end %>
           </ul>
         </div>
       </div>
     </div>
 </div>
+
+
