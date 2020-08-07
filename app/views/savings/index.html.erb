@@ -34,7 +34,7 @@
             <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
             <% if @saving.total_amount == @saving.goal  %>
               <p>Felicitaciones, llegaste a tu objetivo! Ya puedes romper tu chanchito!!</p>
-              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}  %>
+              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger"  %>
             <% end %>
             <% if @saving.total_amount > @saving.goal  %>
               <p>Felicitaciones, superaste tu objetivo! Ya puedes romper tu chanchito!!</p>
@@ -124,8 +124,8 @@
         </div>
         <div class="modal-footer d-flex justify-content-around">
           <div class="form-actions">
-            <button type="button" class="btn btn-secondary pt-2" data-dismiss="modal">Close</button>
-            <%= f.button :submit, "Update", class: "btn btn-flat pt-2" %>
+            <button type="button" class="btn btn-secondary pt-2" data-dismiss="modal">Cerrar</button>
+            <%= f.button :submit, "Actualizar", class: "btn btn-flat pt-2" %>
           </div>
         </div>
       <% end %>

@@ -16,7 +16,7 @@
       <div id="content-wrap">
         <%= render('shared/navbar') %>
         <!-- END OF NAV BAR -->
-
+        <% flash.each do |type, msg| %> <span class="alert alert-success alert-dismissible fade in"> <%= msg %> </span> <% end %>
         <%= yield %>
       </div>
     <%= render('shared/footer') %>
