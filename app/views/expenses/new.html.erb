@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <% if current_user.savings.empty? %>
     <h1>Aun no tienes ningun chanchito, crealo</h1>
     <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient"  %>
@@ -10,7 +10,7 @@
     <%= simple_form_for  @expense do |f| %>
       <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
       <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
-      <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gastos", class: "exs" %>
+      <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
       <%= f.submit "Agregar gastos", name:"test", class:"btn btn-gradient" %>
     <% end %>
     <div class="mt-2">
