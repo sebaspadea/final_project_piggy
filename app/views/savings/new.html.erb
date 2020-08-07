@@ -1,8 +1,8 @@
 <div class="container">
 <h1>Nuevo Chanchito</h1>
     <%= simple_form_for  @saving do |f| %>
-      <%= f.input :goal,  :label => "Ingresa tu meta de ahorro:",placeholder:"Ingresa tu meta", class: "exs" %>
-      <%= f.input :goal_description,  :label => "Descripcion de la meta", placeholder:"Descripcion de la meta", class: "exs" %>
+      <%= f.input :goal,  :label => "Cual es tu objetivo de ahorro?",placeholder:"Ingresa tu meta", class: "exs" %>
+      <%= f.input :goal_description,  :label => "Para que estás ahorrando?", placeholder:"Descripcion de la meta, máximo 50 carácteres.", class: "exs" %>
       <%= f.submit "Crear chanchito!", class:"btn btn-flat mr-3" %>
     <% end %>
 </div>

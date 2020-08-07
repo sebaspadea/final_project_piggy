@@ -13,7 +13,7 @@
             Tus chanchitos historicos
           </div>
           <div class="card-body">
-            <%= line_chart @savings.group_by_day_of_week(:created_at, format: "%a").count(:goal) %>
+             <%= column_chart @savings.group(:goal_description).group(:goal).sum(:total_amount) %>
           </div>
         </div>
       </div>
@@ -32,8 +32,13 @@
           <div class="card-body">
             <p>OBJETIVO: $<%= @saving.goal%></p>
             <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
-            <% if @saving.total_amount >= @saving.goal  %>
+            <% if @saving.total_amount == @saving.goal  %>
+              <p>Felicitaciones, llegaste a tu objetivo! Ya puedes romper tu chanchito!!</p>
               <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}  %>
+            <% end %>
+            <% if @saving.total_amount > @saving.goal  %>
+              <p>Felicitaciones, superaste tu objetivo! Ya puedes romper tu chanchito!!</p>
+              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger"  %>
             <% end %>
           </div>
         </div>
@@ -53,7 +58,7 @@
                 <div class="my-2 p-2 border rounded-lg">
                   <div class="d-flex align-items-center justify-content-between mx-2">
                     <h5 class="card-title"><%= saving.goal_description %></h5>
-                    <p class="card-title font-weight-lighter">Estado: <%= saving.status %></p>
+                    <p class="card-title font-weight-lighter">Estado: Actual</p>
                   </div>
                   <div>
                       <p class="card-text mx-2">Total Ahorrado: $<%= saving.total_amount %></p>
@@ -63,7 +68,7 @@
                 <div class="my-2 p-2 border rounded-lg">
                     <div class="d-flex align-items-center justify-content-between mx-2">
                       <h5 class="card-title"><%= saving.goal_description %></h5>
-                      <p class="card-title font-weight-lighter">Estado: <%= saving.status %></p>
+                      <p class="card-title font-weight-lighter">Estado: Roto</p>
                     </div>
                   <div>
                     <p class="card-text mx-2">Total Ahorrado: $<%= saving.total_amount %></p>
@@ -101,13 +106,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <%= f.input :goal,
-                    hint: "leave it blank if you don't want to change it",
+                    label: "Cual es tu objetivo de ahorro?",
+                    hint: "Dejalo en blanco si no deseas cambiarlo",
                     required: false,
                     input_html: { autocomplete: "Meta" } %>
                 </div>
                 <div class="col-md-12">
                   <%= f.input :goal_description,
-                  hint: "leave it blank if you don't want to change it",
+                  label: "Para que estás ahorrando?",
+                  hint: "Dejalo en blanco si no deseas cambiarlo",
                   required: false,
                   input_html: { autocomplete: "Nombre del chanchito" } %>
                 </div>
