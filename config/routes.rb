@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' } 
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
 
   get 'user', to: 'users#show'
   get 'expenses/new', to: 'expenses#new'
   post 'expenses', to: 'expenses#create'
+  # get 'expenses/edit', to: 'expenses#edit'
+  patch 'expense/:id', to: 'expenses#update', as: :expense
   get 'expenses', to: 'expenses#index'
   get 'savings', to: 'savings#index'
   get 'savings/new', to: 'savings#new', as: :new_saving
