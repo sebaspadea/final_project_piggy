@@ -1,26 +1,26 @@
 <div class="container-fluid">
   <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+  <% if @expenses.any? %>
     <div class="row my-3">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          Resumen de movimientos
-        </div>
-        <div class="card-body">
-          <div class="row d-flex justify-content-between">
-            <div class="col-md-6">
-              <h6 class="card-title my-1">Gastos</h6>
-              <%= pie_chart @expenses.group(:category).count %>
-            </div>
-            <div class="col-md-6 border-left-dark">
-              <h6 class="card-title my-1">Ahorros</h6>
-              <%= column_chart @savings.group_by_day_of_week(:created_at, format: "%a").sum(:total_amount) %>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Resumen de movimientos
+          </div>
+          <div class="card-body">
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-6">
+                  <%= pie_chart @expenses.group(:category).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
+                </div>
+                <div class="col-md-6 border-left-dark">
+                  <%= column_chart @savings.group_by_day_of_week(:created_at, format: "%a").sum(:total_amount), title: "Ahorros", download: true, download: {filename: "Detalle Gastos"} %>
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %> 
   <div class="row my-3">
     <div class="col-md-12">
       <div class="card">
@@ -67,7 +67,8 @@
               <% end %>
           <% else %>
             <div>
-              <h5 class="card-text my-2">Aun no tienes ahorros</h5>
+              <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
+              <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
             </div>
           <% end %>
         </div>
