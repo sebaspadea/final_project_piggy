@@ -11,7 +11,7 @@
       <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
       <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
       <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
-      <%= f.submit "Agregar gastos", name:"test", class:"btn btn-gradient" %>
+      <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
     <% end %>
     <div class="mt-2">
       <%= link_to "Ir a mi perfil", user_path%>
