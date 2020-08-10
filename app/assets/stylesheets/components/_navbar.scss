@@ -11,6 +11,36 @@
   width: 40px;
 }
 
+/* Border X get width  */
+.borderXwidth:before, .borderXwidth:after
+{
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 2px;
+    content: '';
+    background: #000;
+    transition: all 0.3s;
+}
+
+.borderXwidth:before
+{
+    left: 0px;
+    top: 0px;
+}
+
+.borderXwidth:after
+{
+    right: 0px;
+    bottom: 0px;
+}
+
+.borderXwidth:hover:before, .borderXwidth:hover:after
+{
+    opacity: 1;
+    width: 100%;
+}
+
 
 
 
