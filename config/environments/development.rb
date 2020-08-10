@@ -33,6 +33,12 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  Rails.application.configure do
+  # [...]
+  # Add this line next to existing config.action_mailer settings
+  config.action_mailer.delivery_method = :letter_opener
+  # [...]
+  end
 
   config.action_mailer.perform_caching = false
 
