@@ -2,20 +2,75 @@
   <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
   <% if @expenses.any? %>
     <div class="row my-3">
-      <div class="col-md-12">
+      <div class="col-md-6 my-2">
         <div class="card">
           <div class="card-header">
-            Resumen de movimientos
+            Resumen de gastos
           </div>
           <div class="card-body">
-            <div class="row d-flex justify-content-between">
-                <div class="col-md-6">
-                  <%= pie_chart @expenses.group(:category).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="pills-totales-tab" data-toggle="pill" href="#pills-totales" role="tab" aria-controls="pills-totales" aria-selected="true">Totales</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-mensuales-tab" data-toggle="pill" href="#pills-mensuales" role="tab" aria-controls="pills-mensuales" aria-selected="false">Mensuales</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-semanales-tab" data-toggle="pill" href="#pills-semanales" role="tab" aria-controls="pills-semanales" aria-selected="false">Semanales</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-totales" role="tabpanel" aria-labelledby="pills-totales-tab">
+                  <div class="card card-body">
+                    <%= column_chart @expenses.group(:category).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
+                  </div>
                 </div>
-                <div class="col-md-6 border-left-dark">
-                  <%= column_chart @savings.group_by_day_of_week(:created_at, format: "%a").sum(:total_amount), title: "Ahorros", download: true, download: {filename: "Detalle Gastos"} %>
+                <div class="tab-pane fade" id="pills-mensuales" role="tabpanel" aria-labelledby="pills-mensuales-tab">
+                  <div class="card card-body">
+                    <%= line_chart @expenses.group_by_month(:created_at, last: 6, format: "%b").sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
+                  </div>
                 </div>
+                <div class="tab-pane fade" id="pills-semanales" role="tabpanel" aria-labelledby="pills-semanales-tab">
+                  <div class="card card-body">
+                    <%= column_chart @expenses.group_by_day_of_week(:created_at, format: "%a", week_start: :monday).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
+                  </div>  
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 border-left-dark my-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="d-flex align-items-center justify-content-between">
+              <h6 class="mt-2">Chanchito Actual</h6>
+              <%= link_to "Ver mis ahorros", savings_path, class:"btn btn-success btn-sm text-decoration-none"%>
             </div>
+          </div>
+          <div class="card-body">
+            <% if @savings.any? %>
+              <% if @savings.last.status == "Open" %>
+                <div class="my-2 p-2 border rounded-lg">
+                    <p class="card-text"><%= @savings.last.goal_description %></p>
+                    <h5 class="card-title">$<%= @savings.last.total_amount %> / $<%= @savings.last.goal %></h5>
+                </div>
+                <div class="progress align-center">
+                  <div class="progress-done" data-done="<%= @savings.last.progress %>">
+                    <%= @savings.last.progress %>%
+                  </div>
+                </div>
+              <% else %>
+                <div class="my-2 p-2 border rounded-lg">
+                  <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
+                  <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
+                </div>
+              <% end %>
+            <% else %>
+              <div>
+                <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
+                <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -45,34 +100,7 @@
 
   <div class="row my-3">
     <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="mt-2">Chanchito Actual</h6>
-            <%= link_to "Ver mis ahorros", savings_path, class:"btn btn-success btn-sm text-decoration-none"%>
-          </div>
-        </div>
-        <div class="card-body">
-          <% if @savings.any? %>
-              <% if @savings.last.status == "Open" %>
-                <div class="my-2 p-2 border rounded-lg">
-                  <p class="card-text"><%= @savings.last.goal_description %></p>
-                  <h5 class="card-title">$<%= @savings.last.total_amount %> / $<%= @savings.last.goal %></h5>
-                </div>
-              <% else %>
-                <div class="my-2 p-2 border rounded-lg">
-                  <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
-                  <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
-                </div>
-              <% end %>
-          <% else %>
-            <div>
-              <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
-              <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      
     </div>
   </div>
   <div class="row my-3">
