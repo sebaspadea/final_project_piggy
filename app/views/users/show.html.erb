@@ -52,7 +52,7 @@
               <% if @savings.last.status == "Open" %>
                 <div class="my-2 p-2 border rounded-lg">
                     <div class="my-2">
-                      <h3 class="card-title align-self-center"><%= @savings.last.goal_description %></h3>
+                      <h2 class="card-title align-self-center text-center"><%= @savings.last.goal_description %></h2>
                       <h5 class="card-text align-self-center">$<%= @savings.last.total_amount %> / $<%= @savings.last.goal %></h5>
                     </div>
                     <div class="progress">
