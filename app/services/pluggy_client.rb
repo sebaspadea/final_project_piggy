@@ -11,7 +11,7 @@ class PluggyClient
 
   def connectors
     response = get("/connectors")
-    response["results"]
+    response["results"].select { |c| c["country"] == "AR" && c["type"] == "PERSONAL_BANK" }
   end
 
   def connector(id)

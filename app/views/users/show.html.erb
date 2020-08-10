@@ -57,7 +57,11 @@
                     </div>
                     <div class="progress">
                       <div class="progress-done" data-done="<%= @savings.last.progress %>">
-                        <%= @savings.last.progress %>%
+                        <% if @savings.last.progress >= 100 %>
+                          <%= "Felicitaciones llegaste a tu objetivo!" %>
+                        <% else %>  
+                          <%= @savings.last.progress %>%
+                        <% end %>
                       </div>
                     </div>  
                 </div>

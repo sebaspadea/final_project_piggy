@@ -137,3 +137,13 @@ $box-shadow2: ();
   box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
   transition: 1s ease;
 }
+
+#progress-ahorros{
+  height: 100px;
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
+  .progress-done {
+    font-size: 40px;
+  }
+}

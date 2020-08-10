@@ -17,4 +17,13 @@
       <%= link_to "Ir a mi perfil", user_path%>
   </div>
   <% end %>
+
+  <h3>Conectar cuenta bancaria</h3>
+  <div class="">
+    <%= simple_form_for :bank, url: expenses_path do |f| %>
+      <%= f.input :user, label: "Usuario" %>
+      <%= f.input :password, label: "Contraseña" %>
+      <%= f.submit "Agregar banco", class:"btn btn-gradient" %>
+    <% end %>
+  </div>
 </div>
