@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get 'user/edit', to: 'users#edit'
   patch 'user', to: 'users#update'
 
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.present? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
