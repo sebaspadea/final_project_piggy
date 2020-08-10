@@ -13,7 +13,6 @@ class ExpensesController < ApplicationController
   def create
 
     if params[:bank]
-      raise
       p_client = PluggyClient.new
       items = p_client.fetch_items(0, { user: "user-ok", password: "password-ok" })
       # get th item id
@@ -23,7 +22,7 @@ class ExpensesController < ApplicationController
       # armo expenses con las transactions
       # transactions["results"] => array de hashes
       # usar p_client.transactions["results"].select { |t| ["Credit Card", "Transfer"].include?(t["category"])
-
+      raise
       redirect_to expenses_path
     else
       @expense = Expense.new(expense_params)
