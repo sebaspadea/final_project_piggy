@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("chartkick")
 require("chart.js")
+require("testimonial")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -27,11 +28,26 @@ require("chart.js")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   $(".alert").fadeOut(2000 );
+  //$('.collapseGraficos').collapse({
+    //toggle: false
+  //})
+  const progress = document.querySelector('.progress-done');
+
+  setTimeout(() => {
+    progress.style.opacity = 1;
+    progress.style.width = progress.getAttribute('data-done') + '%';
+  }, 500)
 });
+
+
+
+
