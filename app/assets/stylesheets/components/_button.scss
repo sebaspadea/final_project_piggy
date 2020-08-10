@@ -52,3 +52,107 @@
   opacity: 1;
 }
 
+.btnAnimation {
+  background: lighten(#F3F0FE, 3%);
+  border: 1px solid darken(#E64967, 4%);
+  box-shadow: 0px 2px 0 darken(#F3F0FE, 5%), 2px 4px 6px darken(#F3F0FE, 2%);
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+  padding: 4px;
+  color: #E64967;
+  font-size: 12px;
+  // border-radius: 50px;
+}
+
+.btnAnimation:hover {
+  background: darken(#E64967, 1.5%);
+  border: 1px solid rgba(#000, .05);
+  box-shadow: 1px 1px 2px rgba(#fff, .2);
+  color: lighten(#F3F0FE, 18%);
+  text-decoration: none;
+  // text-shadow: -1px -1px 0 darken(#F3F0FE, 9.5%);
+  transition: all 250ms linear;
+}
+
+
+
+
+.animated-button-pink.thar-four {
+  color: #E64968;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #E64968;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+  width: 35%;
+  text-align: center;
+
+}
+.animated-button-pink.thar-four:hover {
+  color: #F4F4F4 !important;
+  background-color: transparent;
+  text-shadow: nfour;
+
+}
+.animated-button-pink.thar-four:hover:before {
+  right: 0%;
+  left: auto;
+  width: 100%;
+
+}
+.animated-button-pink.thar-four:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #F4F4F4 !important;
+  background: #E64968;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+
+
+.animated-button-blue.thar-four {
+  color: #1478EE;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #1478EE;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+  width: 10%;
+  text-align: center;
+  background-color:#F4F4F4;
+
+}
+.animated-button-blue.thar-four:hover {
+  color: #F4F4F4 !important;
+  background-color: transparent;
+  text-shadow: nfour;
+
+}
+.animated-button-blue.thar-four:hover:before {
+  right: 0%;
+  left: auto;
+  width: 100%;
+
+}
+.animated-button-blue.thar-four:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #1478EE !important;
+  background: #1478EE;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+
+}
