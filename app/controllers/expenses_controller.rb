@@ -16,7 +16,7 @@ class ExpensesController < ApplicationController
       p_client = PluggyClient.new
       items = p_client.fetch_items(0, { user: "user-ok", password: "password-ok" })
       # get th item id
-      accounts = p_client.fetch_accounts(items[0]["id"])
+      accounts = p_client.fetch_accounts(items["id"])
       # get the transaccions for the account
       transactions = p_client.fetch_transactions(accounts[0]["id"])
       # armo expenses con las transactions
