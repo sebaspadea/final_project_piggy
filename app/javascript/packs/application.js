@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("chartkick")
 require("chart.js")
+require("testimonial")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -46,3 +47,7 @@ document.addEventListener('turbolinks:load', () => {
     progress.style.width = progress.getAttribute('data-done') + '%';
   }, 500)
 });
+
+
+
+
