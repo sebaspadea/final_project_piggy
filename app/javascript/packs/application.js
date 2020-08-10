@@ -28,13 +28,24 @@ require("testimonial")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   $(".alert").fadeOut(2000 );
+  //$('.collapseGraficos').collapse({
+    //toggle: false
+  //})
+  const progress = document.querySelector('.progress-done');
+
+  setTimeout(() => {
+    progress.style.opacity = 1;
+    progress.style.width = progress.getAttribute('data-done') + '%';
+  }, 500)
 });
 
 
