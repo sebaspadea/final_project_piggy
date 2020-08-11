@@ -18,12 +18,14 @@
   </div>
   <% end %>
 
-  <h3>Conectar cuenta bancaria</h3>
-  <div class="">
-    <%= simple_form_for :bank, url: expenses_path do |f| %>
-      <%= f.input :user, label: "Usuario" %>
-      <%= f.input :password, label: "Contraseña" %>
-      <%= f.submit "Agregar banco", class:"btn btn-gradient" %>
-    <% end %>
-  </div>
+  <% if current_user.pluggy_item_id.nil? %>
+    <h3>Conectar cuenta bancaria</h3>
+    <div class="">
+      <%= simple_form_for :bank, url: expenses_path do |f| %>
+        <%= f.input :user, label: "Usuario" %>
+        <%= f.input :password, label: "Contraseña" %>
+        <%= f.submit "Agregar banco", class:"btn btn-gradient" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
