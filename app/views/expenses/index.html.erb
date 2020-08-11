@@ -6,7 +6,7 @@
           <div class="my-3">
             <div class="record">
               <div class="d-flex justify-content-between"><%= expense.category %><br>
-                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
+                <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
                   Editar
                 </button>
                 <%= render "expense_modal_edit", expense: expense %>
