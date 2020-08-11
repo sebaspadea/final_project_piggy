@@ -36,7 +36,7 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  $(".alert").fadeOut(2000 );
+  $(".alert").fadeOut(4000 );
   //$('.collapseGraficos').collapse({
     //toggle: false
   //})
