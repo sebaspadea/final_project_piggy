@@ -1,9 +1,10 @@
 require "groupdate"
 
 class ExpensesController < ApplicationController
+  include Pagy::Backend
   skip_before_action :authenticate_user!
   def index
-    @expenses = current_user.expenses
+    @pagy, @expenses = pagy(current_user.expenses)
   end
 
   def new

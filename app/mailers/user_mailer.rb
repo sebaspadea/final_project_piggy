@@ -5,9 +5,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome()
-    @user = params[:user]
-
+  def welcome
+    @user = User.find(params[:user_id])
     mail(to: @user.email, subject: 'Bienvenido a Piggy')
   end
 

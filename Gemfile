@@ -33,7 +33,7 @@ gem 'groupdate'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-
+gem 'pagy', '~> 3.5'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
