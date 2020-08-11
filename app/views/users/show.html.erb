@@ -21,19 +21,13 @@
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-totales" role="tabpanel" aria-labelledby="pills-totales-tab">
-                  <div class="card card-body">
                     <%= column_chart @expenses.group(:category).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
-                  </div>
                 </div>
                 <div class="tab-pane fade" id="pills-mensuales" role="tabpanel" aria-labelledby="pills-mensuales-tab">
-                  <div class="card card-body">
                     <%= line_chart @expenses.group_by_month(:created_at, last: 6, format: "%b").sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
-                  </div>
                 </div>
                 <div class="tab-pane fade" id="pills-semanales" role="tabpanel" aria-labelledby="pills-semanales-tab">
-                  <div class="card card-body">
                     <%= line_chart @expenses.group_by_day_of_week(:created_at, format: "%a", week_start: :monday).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
-                  </div>  
                 </div>
               </div>
           </div>
@@ -120,7 +114,7 @@
         </div>
         <div class="card-body">
           <% if @expenses.any? %>
-            <% @expenses.last(10).each do |expense| %>
+            <% @expenses.last(5).each do |expense| %>
               <div class="my-2 p-2 border rounded-lg">
                 <div class="d-flex align-items-center justify-content-between mx-2">
                   <h5 class="card-title">$<%= expense.amount %></h5>
