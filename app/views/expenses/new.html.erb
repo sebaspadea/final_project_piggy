@@ -4,13 +4,15 @@
     <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
     <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
     <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
+    <div class="d-flex">
     <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
+    <% unless current_user.pluggy_item_id.nil? %>
+      <%= link_to "Actualizar Gastos", synk_bank_path, class: "animated-button-pink thar-four ml-2 p-1" %>
+    <% end %>
+    </div>
   <% end %>
   <div class="mt-2">
     <%= link_to "Ir a mi perfil", user_path%>
-    <% unless current_user.pluggy_item_id.nil? %>
-      <%= link_to "Actualizar Gastos", synk_bank_path, class: "animated-button-pink thar-four" %>
-    <% end %>
   </div>
   <% if current_user.pluggy_item_id.nil? %>
     <h3>Conectar cuenta bancaria</h3>
