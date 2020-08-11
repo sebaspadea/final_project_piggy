@@ -37,6 +37,21 @@
         <div class="card">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
+              <h6 class="mt-2">Datos Personales</h6>
+              <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#staticBackdrop">
+                Editar
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"> Usuario: <%= @user.username %></h5>
+            <h5 class="card-title"> Email: <%= @user.email %></h5>
+            <h5 class="card-title"> Porcentaje de ahorro: <%= @user.saving_percentage %>%</h5>
+          </div>
+        </div>
+        <div class="card my-2">
+          <div class="card-header">
+            <div class="d-flex align-items-center justify-content-between">
               <h6 class="mt-2">Chanchito Actual</h6>
               <%= link_to "Ver mis ahorros", savings_path, class:"btn btnFullPink btn-sm text-decoration-none"%>
             </div>
@@ -44,65 +59,31 @@
           <div class="card-body">
             <% if @savings.any? %>
               <% if @savings.last.status == "Open" %>
-                <div class="my-2 p-2 border rounded-lg">
-                    <div class="my-2">
-                      <h2 class="card-title align-self-center text-center"><%= @savings.last.goal_description %></h2>
-                      <h5 class="card-text align-self-center">$<%= @savings.last.total_amount %> / $<%= @savings.last.goal %></h5>
+                <h2 class="card-title align-self-center text-center"><%= @savings.last.goal_description %></h2>
+                <% if @savings.last.progress > 0 %>
+                  <div class="progress">
+                    <div class="progress-done" data-done="<%= @savings.last.progress %>">
+                      <% if @savings.last.progress >= 100 %>
+                        <%= "Felicitaciones llegaste a tu objetivo!" %>
+                      <% else %>  
+                        <%= @savings.last.progress %>%
+                      <% end %>
                     </div>
-                    <div class="progress">
-                      <div class="progress-done" data-done="<%= @savings.last.progress %>">
-                        <% if @savings.last.progress >= 100 %>
-                          <%= "Felicitaciones llegaste a tu objetivo!" %>
-                        <% else %>  
-                          <%= @savings.last.progress %>%
-                        <% end %>
-                      </div>
-                    </div>
-                </div>
+                  </div>
+                <% end %>
               <% else %>
-                <div class="my-2 p-2 border rounded-lg">
-                  <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
-                  <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
-                </div>
+                <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
+                <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
               <% end %>
             <% else %>
-              <div>
-                <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
-                <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
-              </div>
+              <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
+              <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   <% end %>
-  <div class="row my-3">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="mt-2">Datos Personales</h6>
-            <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#staticBackdrop">
-              Editar
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"> Usuario: <%= @user.username %></h5>
-          <h5 class="card-title"> Nombre: <%= @user.first_name %></h5>
-          <h5 class="card-title"> Apellido: <%= @user.last_name %></h5>
-          <h5 class="card-title"> Email: <%= @user.email %></h5>
-          <h5 class="card-title"> Porcentaje de ahorro: <%= @user.saving_percentage %>%</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row my-3">
-    <div class="col-md-12">
-
-    </div>
-  </div>
   <div class="row my-3">
     <div class="col-md-12">
       <div class="card">

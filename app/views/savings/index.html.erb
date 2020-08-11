@@ -13,7 +13,8 @@
             Tu avance
           </div>
           <div class="card-body">
-             <div class="progress" id="progress-ahorros">
+            <% if @savings.last.progress > 0 %>
+              <div class="progress" id="progress-ahorros">
                 <div class="progress-done" data-done="<%= @savings.last.progress %>">
                   <% if @savings.last.progress >= 100 %>
                     <%= "Felicitaciones llegaste a tu objetivo!" %>
@@ -21,7 +22,8 @@
                     <%= @savings.last.progress %>%
                   <% end %>
                 </div>
-              </div> 
+              </div>     
+            <% end %> 
           </div>
         </div>
       </div>
