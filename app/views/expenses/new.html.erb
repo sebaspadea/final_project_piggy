@@ -1,27 +1,21 @@
 <div class="container py-5">
-  <% if current_user.savings.empty? %>
-    <h1>Aun no tienes ningun chanchito, crealo</h1>
-    <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient"  %>
-  <% elsif !current_user.savings.empty? && current_user.savings.last.status != "Open" %>
-    <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
-    <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient" %>
-  <% else %>
-    <h1>Agregar nuevo gasto</h1>
-    <%= simple_form_for  @expense do |f| %>
-      <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
-      <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
-      <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
-      <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
-    <% end %>
-    <div class="mt-2">
-      <%= link_to "Ir a mi perfil", user_path%>
-  </div>
+  <h1>Agregar nuevo gasto</h1>
+  <%= simple_form_for  @expense do |f| %>
+    <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
+    <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
+    <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
+    <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
   <% end %>
-
+  <div class="mt-2">
+    <%= link_to "Ir a mi perfil", user_path%>
+    <% unless current_user.pluggy_item_id.nil? %>
+      <%= link_to "Actualizar Gastos", synk_bank_path, class: "animated-button-pink thar-four" %>
+    <% end %>
+  </div>
   <% if current_user.pluggy_item_id.nil? %>
     <h3>Conectar cuenta bancaria</h3>
     <div class="">
-      <%= simple_form_for :bank, url: expenses_path do |f| %>
+      <%= simple_form_for :bank, url: create_bank_path do |f| %>
         <%= f.input :user, label: "Usuario" %>
         <%= f.input :password, label: "Contraseña" %>
         <%= f.submit "Agregar banco", class:"btn btn-gradient" %>
