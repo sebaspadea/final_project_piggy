@@ -1,18 +1,20 @@
-<div class="container-fluid py-5">
-  <div class="col-sm-12 col-md-12">
+
+<div class="container py-5 row">
+  <div class="col-sm-12 col-md-8 offset-md-3" >
     <div class="cards">
       <% if @expenses.any? %>
         <% @expenses.each do |expense| %>
-          <div class="card my-3">
+          <div class="my-3">
             <div class="record">
-              <div class="d-flex justify-content-between"><%= expense.category %><br>
-                <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
+              <div class="d-flex justify-content-between mx-3"><%= expense.category %> <span class="record__caption px-3"><%= expense.description.capitalize %></span>
+                <button type="button" class="btn btnAnimation btn-sm my-2" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
                   Editar
                 </button>
                 <%= render "expense_modal_edit", expense: expense %>
               </div>
-              <div class=" record__amount ">$<%= expense.amount %> <span class="record__fadeout">,00</span></div>
-              <div class="record__caption"><%= expense.description %></div>
+              <div class=" record__amount text-center p-2"><%= number_to_currency(expense.amount) %></div>
+             <div class="p-2"><%= expense.created_at.strftime("%d-%m-%Y %H:%M")%></div>
+
             </div>
           </div>
         <% end %>
