@@ -1,9 +1,9 @@
-<div class="container-fluid py-5">
+<div class="container py-5">
   <div class="col-sm-12 col-md-12">
     <div class="cards">
       <% if @expenses.any? %>
         <% @expenses.each do |expense| %>
-          <div class="card my-3">
+          <div class="my-3">
             <div class="record">
               <div class="d-flex justify-content-between"><%= expense.category %><br>
                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
