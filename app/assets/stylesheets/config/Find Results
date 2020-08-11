@@ -1,0 +1,155 @@
+Searching 180 files for "font-size"
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/components/_button.scss:
+   62    padding: 4px;
+   63    color: #E64967;
+   64:   font-size: 0.8rem;
+   65
+   66    // border-radius: 50px;
+   ..
+  173    padding: 4px;
+  174    color: white;
+  175:   font-size: 0.8 rem;
+  176    // border-radius: 50px;
+  177  }
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/components/_expense-card.scss:
+   25
+   26  .record__amount {
+   27:   font-size: 2rem;
+   28  }
+   29
+   30  .record__caption {
+   31:   font-size: 1.2rem;
+   32    color: #2A2C2B;
+   33    font-weight: bold;
+   ..
+   43  .record__fadeout {
+   44    color: #BDD684;
+   45:   font-size: 1.8rem;
+   46  }
+   47
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/components/_footer.scss:
+   30    opacity: 0.15;
+   31    text-decoration: none;
+   32:   font-size: 1.7px;
+   33    padding: 0px 10px;
+   34  }
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/components/_nosotros.scss:
+   11        color: #000;
+   12        font-family: 'Roboto', sans-serif;
+   13:       font-size: 3.5rem;
+   14        font-weight: 300;
+   15        line-height: 2.625rem;
+   ..
+  108        color: #313435;
+  109        font-family: 'Roboto', sans-serif;
+  110:       font-size: 1.5rem;
+  111        font-weight: 500;
+  112        line-height: 2.625rem;
+  ...
+  116        color: #6F808A;
+  117        font-family: 'Roboto', sans-serif;
+  118:       font-size: 0.875rem;
+  119        line-height: 2.375rem;
+  120      }
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/components/_testimonial.scss:
+   92  //   color: hsl(260, 5%, 55%);
+   93  //   font-family: "Lato", sans-serif;
+   94: //   font-size: 0.75rem;
+   95  //   text-transform: uppercase;
+   96  //   letter-spacing: 0.05rem;
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/config/_bootstrap_variables.scss:
+    8  $headings-font-family:    $headers-font;
+    9  $body-bg:                 $light-gray;
+   10: $font-size-base: 1rem;
+   11
+   12  // Colors
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/config/_fonts.scss:
+   19  // $my-font: "Font Name";
+   20  html {
+   21:   font-size: 0.8rem;
+   22  }
+   23  @media (min-width: 576px) {
+   24    html {
+   25:     font-size: 1rem;
+   26    }
+   27  }
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/pages/_allPages.scss:
+    4
+    5  .gasto {
+    6:   font-size: 1.9rem;
+    7  }
+    8
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/assets/stylesheets/pages/_home.scss:
+    5        font-style: normal;
+    6        font-weight: 800;
+    7:       font-size: 5rem;
+    8        line-height: 110%;
+    9        /* or 88px */
+   ..
+   19          font-style: normal;
+   20          font-weight: normal;
+   21:         font-size: 1.1rem;
+   22          line-height: 160%;
+   23          /* or 29px */
+   ..
+   50        font-style: normal;
+   51        font-weight: 800;
+   52:       font-size: 2.5rem;
+   53        line-height: 110%;
+   54        margin-top: 70px;
+   ..
+   72            font-style: normal;
+   73            font-weight: 800;
+   74:           font-size: 1.2rem;
+   75            line-height: 110%;
+   76
+   ..
+   83            font-style: normal;
+   84            font-weight: normal;
+   85:           font-size: 1.1rem;
+   86            line-height: 160%;
+   87            color: #4B5D68;
+   ..
+  104      font-style: normal;
+  105      font-weight: 800;
+  106:     font-size: 2.5rem;
+  107      line-height: 110%;
+  108    };
+  ...
+  116      font-style: normal;
+  117      font-weight: normal;
+  118:     font-size: 1.1rem;
+  119      line-height: 160%;
+  120      /* or 29px */
+
+/home/eugenio/code/sebaspadea/final_project_piggy/public/404.html:
+   33
+   34    .rails-default-error-page h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+/home/eugenio/code/sebaspadea/final_project_piggy/public/422.html:
+   33
+   34    .rails-default-error-page h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+/home/eugenio/code/sebaspadea/final_project_piggy/public/500.html:
+   33
+   34    .rails-default-error-page h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+24 matches across 12 files
