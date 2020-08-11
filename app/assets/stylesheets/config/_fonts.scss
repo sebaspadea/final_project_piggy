@@ -17,3 +17,11 @@ $headers-font: "Work Sans", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+html {
+  font-size: 12px;
+}
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+}
