@@ -63,10 +63,9 @@ class ExpensesController < ApplicationController
       current_user.pluggy_last_update = Date.today
       current_user.save
     end
-    accounts = []
-    5.times do
+    accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
+    while accounts.empty?
       accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
-      break unless accounts.empty?
     end
     # get the transaccions for the account
     transactions = p_client.fetch_transactions(accounts[0]["id"])
