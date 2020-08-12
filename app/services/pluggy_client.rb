@@ -5,13 +5,13 @@ class PluggyClient
 
   def initialize
     @url = "https://api.pluggy.ai"
-    @api_key = auth(ENV["CLIENT_ID"], ENV["CLIENT_SECRET"])
+    @api_key = auth(ENV["PLUGGY_CLIENT_ID"], ENV["PLUGGY_CLIENT_SECRET"])
     @headers = { "X-API-KEY": @api_key }
   end
 
   def connectors
     response = get("/connectors")
-    response["results"]
+    response["results"].select { |c| c["country"] == "AR" && c["type"] == "PERSONAL_BANK" }
   end
 
   def connector(id)
@@ -34,8 +34,10 @@ class PluggyClient
   def fetch_account(id)
   end
 
-  def fetch_transactions(account_id)
-    @transactions = get("/transactions", { "accountId": account_id })
+  # params could be: {from: "date", to: "date", pageSize: 150}
+  def fetch_transactions(account_id, params = {})
+    params["accountId"] = account_id
+    @transactions = get("/transactions", params)
   end
 
   def fetch_transaction(id)

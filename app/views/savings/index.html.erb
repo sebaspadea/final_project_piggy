@@ -10,10 +10,20 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            Tus chanchitos historicos
+            <h1 class="card-title"><%= @saving.goal_description%></h1>
           </div>
           <div class="card-body">
-             <%= column_chart @savings.group(:goal_description).group(:goal).sum(:total_amount) %>
+            <% if @savings.last.progress > 0 %>
+              <div class="progress" id="progress-ahorros">
+                <div class="progress-done" data-done="<%= @savings.last.progress %>">
+                  <% if @savings.last.progress >= 100 %>
+                    <%= "Felicitaciones llegaste a tu objetivo!" %>
+                  <% else %>  
+                    <%= @savings.last.progress %>%
+                  <% end %>
+                </div>
+              </div>     
+            <% end %> 
           </div>
         </div>
       </div>
@@ -23,7 +33,7 @@
         <div class="card">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
-              <h1 class="card-title"><%= @saving.goal_description%></h1>
+              <h5>Detalles</h5>
               <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#staticBackdrop">
                   Editar
               </button>
@@ -34,11 +44,11 @@
             <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
             <% if @saving.total_amount == @saving.goal  %>
               <p>Felicitaciones, llegaste a tu objetivo! Ya puedes romper tu chanchito!!</p>
-              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger"  %>
+              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger", id: "RomperChanchito" %>
             <% end %>
             <% if @saving.total_amount > @saving.goal  %>
               <p>Felicitaciones, superaste tu objetivo! Ya puedes romper tu chanchito!!</p>
-              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger"  %>
+              <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger", id: "RomperChanchito"  %>
             <% end %>
           </div>
         </div>
@@ -58,7 +68,7 @@
                 <div class="my-2 p-2 border rounded-lg">
                   <div class="d-flex align-items-center justify-content-between mx-2">
                     <h5 class="card-title"><%= saving.goal_description %></h5>
-                    <p class="card-title font-weight-lighter">Estado: Actual</p>
+                    <%= image_tag("favicon-32x32") %>
                   </div>
                   <div>
                       <p class="card-text mx-2">Total Ahorrado: $<%= saving.total_amount %></p>
@@ -68,7 +78,7 @@
                 <div class="my-2 p-2 border rounded-lg">
                     <div class="d-flex align-items-center justify-content-between mx-2">
                       <h5 class="card-title"><%= saving.goal_description %></h5>
-                      <p class="card-title font-weight-lighter">Estado: Roto</p>
+                      <%= image_tag("favicon-dinero-32x32") %>
                     </div>
                   <div>
                     <p class="card-text mx-2">Total Ahorrado: $<%= saving.total_amount %></p>
