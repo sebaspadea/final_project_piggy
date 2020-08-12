@@ -139,11 +139,11 @@ $box-shadow2: ();
 }
 
 #progress-ahorros{
-  height: 100px;
+  height: 75px;
   width: 100%;
-  background-color: lightgray;
+  background-color: rgb(235, 233, 233);
   text-align: center;
   .progress-done {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
