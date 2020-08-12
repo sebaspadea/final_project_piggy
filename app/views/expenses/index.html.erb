@@ -5,16 +5,13 @@
       <% if @expenses.any? %>
         <% @expenses.each do |expense| %>
           <div class="my-3">
-            <div class="record">
-              <div class="d-flex justify-content-between mx-3"><%= expense.category %> <span class="record__caption px-3"><%= expense.description.capitalize %></span>
-                <button type="button" class="btn btnAnimation btn-sm my-2" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
-                  Editar
-                </button>
-                <%= render "expense_modal_edit", expense: expense %>
-              </div>
-              <div class=" record__amount text-center p-2"><%= number_to_currency(expense.amount) %></div>
-             <div class="p-2"><%= expense.created_at.strftime("%d-%m-%Y %H:%M")%></div>
-
+            <div class="card-product">
+              <img src= />
+                  <div class="card-product-infos">
+                    <h2><%= number_to_currency(expense.amount) %></h2>
+                    <p><%= expense.description.capitalize %> <strong><%= expense.created_at.strftime("%d-%m-%Y %H:%M")%></strong>
+                    </p>
+                  </div>
             </div>
           </div>
         <% end %>
