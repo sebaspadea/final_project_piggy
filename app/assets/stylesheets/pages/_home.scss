@@ -1,25 +1,31 @@
 // Specific CSS for your home-page
-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right:0;
-  width:100%;
+.home-background {
+  background-image: image-url("fondo.png");
+  background-size: 105% 105%;
+  background-position: bottom center;
 
 }
+
 @media (max-width: 576px) {
-  svg {
-    width:230%;
+  .home-background {
+  background-image: image-url("fondoMob.png");
+
   }
-
 }
+// svg {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right:0;
+//   width:100%;
 
+// }
+// @media (max-width: 576px) {
+//   svg {
+//     width:230%;
+//   }
 
-
-
-
-
-
+// }
 
 .primera-vista {
   h1 {
