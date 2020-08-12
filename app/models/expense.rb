@@ -1,8 +1,8 @@
 class Expense < ApplicationRecord
   belongs_to :user
   belongs_to :saving, optional: true
-  CATEGORY = %w(Gastronomia Servicios Entretenimiento Transporte Otros)
+  CATEGORY = ["Entretenimiento", "Gastronomia", "Otros", "Servicios", "Tarjeta de Crédito", "Transporte"]
   validates :category, inclusion: { in: CATEGORY }
   validates :amount, presence: true, numericality: { only_integer: true }
-  validates :description, length: { maximum: 30 }
+  validates :description, length: { maximum: 50 }
 end
