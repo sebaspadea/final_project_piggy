@@ -1,5 +1,14 @@
 <div class="container-fluid">
-  <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+<div class="row pl-2">
+  <div class="col-md-6">  
+    <div class="d-flex align-items-center">
+      <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+      <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
+        Editar
+      </button>
+    </div>
+  </div>
+</div>
   <% if @expenses.any? %>
     <div class="row my-3">
       <div class="col-md-6 my-2">
@@ -20,36 +29,31 @@
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-totales" role="tabpanel" aria-labelledby="pills-totales-tab">
+                <div class="tab-pane fade show active py-4" id="pills-totales" role="tabpanel" aria-labelledby="pills-totales-tab">
                     <%= column_chart @expenses.group(:category).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
                 </div>
-                <div class="tab-pane fade" id="pills-mensuales" role="tabpanel" aria-labelledby="pills-mensuales-tab">
+                <div class="tab-pane fade py-4" id="pills-mensuales" role="tabpanel" aria-labelledby="pills-mensuales-tab">
                     <%= line_chart @expenses.group_by_month(:created_at, last: 6, format: "%b").sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
                 </div>
-                <div class="tab-pane fade" id="pills-semanales" role="tabpanel" aria-labelledby="pills-semanales-tab">
+                <div class="tab-pane fade py-4" id="pills-semanales" role="tabpanel" aria-labelledby="pills-semanales-tab">
                     <%= line_chart @expenses.group_by_day_of_week(:created_at, format: "%a", week_start: :monday).sum(:amount) , title: "Detalle de gastos", download: true, download: {filename: "Detalle Gastos"}, dataset: {borderWidth: 1} %>
                 </div>
               </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6 border-left-dark my-2">
+      <div class="col-md-6 border-left-dark my-1">
         <div class="card">
           <div class="card-header">
-            <div class="d-flex align-items-center justify-content-between">
-              <h6 class="mt-2">Datos Personales</h6>
-              <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#staticBackdrop">
-                Editar
-              </button>
-            </div>
+            <h6>Piggy Tip del día</h6>
           </div>
-          <div class="card-body">
-            <h5 class="card-title"> Usuario: <%= @user.username %></h5>
-            <h5 class="card-title"> Email: <%= @user.email %></h5>
-            <h5 class="card-title"> Porcentaje de ahorro: <%= @user.saving_percentage %>%</h5>
+          <div class="card-body p-2">
+            <h5 class="card-title">Qué es una acción?</h5>
+            <p>Una acción es un activo financiero que representa una parte alícuota del capital social de una sociedad anónima (S.A).</p>
+            <p>Al adquirir acciones se reciben unos derechos sobre la empresa y se obtiene la categoría de socio. De esta forma el comprador de la acción se convierte en dueño de la empresa en una proporción acorde a las acciones que hayamos comprado.</p>
           </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
               <h6 class="mt-2">Chanchito Actual</h6>
@@ -116,8 +120,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

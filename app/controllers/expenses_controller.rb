@@ -60,27 +60,38 @@ class ExpensesController < ApplicationController
     unless current_user.pluggy_item_id
       items = p_client.fetch_items(0, { user: params[:bank]["user"], password: params[:bank]["password"] })
       current_user.pluggy_item_id = items["id"]
-      current_user.pluggy_last_update = Date.today
       current_user.save
     end
-    accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
-    while accounts.empty?
-      accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
+    accounts = []
+    5.times do
+      # accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
+      break unless accounts.empty?
     end
-    # get the transaccions for the account
-    transactions = p_client.fetch_transactions(accounts[0]["id"])
-    parse_transactions(transactions)
-    # armo expenses con las transactions
-    # transactions["results"] => array de hashes
-    # usar p_client.transactions["results"].select { |t| ["Credit Card", "Transfer"].include?(t["category"])
-    redirect_to expenses_path
+    if accounts.empty?
+      flash[:warning] = "Wow! Parece que hubo un problema, vuelve a intentarlo!"
+      @expense = Expense.new
+      render :new
+    else
+      # get the transaccions for the account
+      transactions = p_client.fetch_transactions(accounts[0]["id"])
+      parse_transactions(transactions)
+      current_user.pluggy_last_update = Date.today
+      current_user.save
+      # armo expenses con las transactions
+      # transactions["results"] => array de hashes
+      # usar p_client.transactions["results"].select { |t| ["Credit Card", "Transfer"].include?(t["category"])
+      redirect_to expenses_path
+    end 
   end
 
   def sync_bank_account
     p_client = PluggyClient.new
     accounts = p_client.fetch_accounts(current_user.pluggy_item_id)
-    transactions = p_client.fetch_transactions(accounts[0]["id"])
+    # params could be: {from: "date", to: "date", pageSize: 150}
+    transactions = p_client.fetch_transactions(accounts[0]["id"], {from: current_user.pluggy_last_update, pageSize: 150})
     parse_transactions(transactions)
+    current_user.pluggy_last_update = Date.today
+    current_user.save
     redirect_to expenses_path
   end
 
@@ -88,7 +99,7 @@ class ExpensesController < ApplicationController
 
   def parse_transactions(transactions)
     transactions["results"].each do |transaction|
-      if (transaction["amount"]).negative?
+      if (transaction["amount"]).negative? && transaction["category"] != "Taxes"
         if transaction["category"] == "Entertainment" || transaction["category"] == "Online Subscriptions"
           @expense = Expense.new(category: "Entretenimiento", amount: transaction["amount"].abs.to_i, description: transaction["description"], created_at: transaction["date"] )
           @expense.user = current_user
