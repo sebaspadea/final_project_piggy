@@ -206,3 +206,16 @@
   opacity: 1;
   border-bottom: 3px solid #1478EE;
 }
+
+#btn-home{
+  background-color: #E64968;
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 22px;
+}
+
+#btn-home:hover{
+  background-color: white;
+  color: #E64968 !important;
+}
