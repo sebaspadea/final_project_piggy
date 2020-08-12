@@ -1,14 +1,14 @@
 <div class="container-fluid">
-<div class="row pl-2">
-  <div class="col-md-6">  
-    <div class="d-flex align-items-center">
-      <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
-      <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
-        Editar
-      </button>
+  <div class="row pl-2">
+    <div class="col-md-6">
+      <div class="d-flex align-items-center">
+        <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+        <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
+          Editar
+        </button>
+      </div>
     </div>
   </div>
-</div>
   <% if @expenses.any? %>
     <div class="row my-3">
       <div class="col-md-6 my-2">
@@ -69,7 +69,7 @@
                     <div class="progress-done" data-done="<%= @savings.last.progress %>">
                       <% if @savings.last.progress >= 100 %>
                         <%= "Felicitaciones llegaste a tu objetivo!" %>
-                      <% else %>  
+                      <% else %>
                         <%= @savings.last.progress %>%
                       <% end %>
                     </div>
@@ -88,7 +88,59 @@
       </div>
     </div>
   <% end %>
+
   <div class="row my-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="mt-2">Mis ultimos gastos</h6>
+            <%= link_to "Todos mis gastos", expenses_path, class:"btn btnAnimation btn-sm text-decoration-none"%>
+          </div>
+        </div>
+        <div class="card-body">
+          <% if @expenses.any? %>
+            <% @expenses.last(5).each do |expense| %>
+              <div class="my-3">
+                <div class="card-product">
+                  <% if expense.category == "Servicios" %>
+                    <%= image_tag "servicios.png" %>
+                  <%elsif expense.category == "Otros"%>
+                    <%= image_tag "otros.png" %>
+                  <%  elsif expense.category == "Transporte"%>
+                    <%= image_tag "transporte.png" %>
+                  <%  elsif expense.category == "Entretenimiento"%>
+                    <%= image_tag "entretenimiento.png" %>
+                  <%  elsif expense.category == "Gastronomia"%>
+                    <%= image_tag "comida.png" %>
+                  <% end %>
+                    <div class="box-c d-flex justify-content-between p-2">
+                      <div class="card-product-infos">
+                        <h2><%= number_to_currency(expense.amount) %></h2>
+                        <p class="description"><%= expense.description.capitalize %></p>
+                      </div>
+                      <div class="hora">
+                         <p class="card-title font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+                      </div>
+                    </div>
+                </div>
+            <% end %>
+          <% else %>
+          <div>
+            <h5 class="card-text mx-2">Aun no has cargado ningun gasto</h5>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ <!--  <div class="row my-3">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -119,7 +171,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
 
 
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
