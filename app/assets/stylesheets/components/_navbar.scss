@@ -42,7 +42,7 @@
 }
 .navbar-lewagon {
   background-color: #2E2462;
-  transition: 2s background-color white easy-in-out;
+  transition: background-color 0.3s ease;
     li.nav-item > a{
     color: white !important;
   }

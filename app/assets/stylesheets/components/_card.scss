@@ -21,4 +21,47 @@
   background-color: #FFFFFF;
 
 }
-
+.card-header {
+  background-color: #f0efef;
+  color: rgb(37, 37, 37);
+  .btnAnimation {
+    background: lighten(#F3F0FE, 3%);
+    border: 1px solid darken(#E64967, 4%);
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+    padding: 4px;
+    color: #E64967;
+    font-size: 12px;
+  
+    // border-radius: 50px;
+  }
+  .btnAnimation:hover {
+    background: darken(#E64967, 1.5%);
+    border: 1px solid rgba(#000, .05);
+    color: lighten(#F3F0FE, 18%);
+    text-decoration: none;
+    // text-shadow: -1px -1px 0 darken(#F3F0FE, 9.5%);
+    transition: all 250ms linear;
+  }
+  .btnFullPink {
+    background: lighten(#E64967, 3%);
+    border: 1px solid darken(#E64967, 4%);
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 150ms linear;
+    padding: 4px;
+    color: white;
+    font-size: 12px;
+    // border-radius: 50px;
+  }
+  
+  .btnFullPink:hover {
+    background: darken(#F7F7F7, 1.5%);
+    border: 1px solid rgba(#000, .05);
+    color: #E64967;
+    text-decoration: none;
+    // text-shadow: -1px -1px 0 darken(#F3F0FE, 9.5%);
+    transition: all 250ms linear;
+  }
+}
