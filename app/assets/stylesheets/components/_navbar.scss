@@ -40,6 +40,23 @@
     opacity: 1;
     width: 100%;
 }
+.navbar-lewagon {
+  background-color: #2E2462;
+  transition: 2s background-color white easy-in-out;
+    li.nav-item > a{
+    color: white !important;
+  }
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  li.nav-item > a{
+    color: black !important;
+  }
+}
+.nav-link{
+  color: pink;
+}
 
 
 
