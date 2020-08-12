@@ -19,16 +19,16 @@
           <%= link_to "Perfil", user_path , class: "nav-link #{"border-bottom border-secondary"if request.path == user_path}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Gastos",  expenses_path , class: "nav-link #{"border-bottom border-danger"if request.path == expenses_path}" %>
+          <%= link_to "Gastos",  expenses_path , class: "nav-link #{"border-bottom border-secondary"if request.path == expenses_path}" %>
         </li>
          <li class="nav-item">
-          <%= link_to "Agregar gasto", expenses_new_path , class: "nav-link #{"border-bottom border-danger"if request.path == expenses_new_path}" %>
+          <%= link_to "Agregar gasto", expenses_new_path , class: "nav-link #{"border-bottom border-secondary"if request.path == expenses_new_path}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Ahorros", savings_path , class: "nav-link #{"border-bottom border-danger"if request.path == savings_path}" %>
+          <%= link_to "Ahorros", savings_path , class: "nav-link #{"border-bottom border-secondary"if request.path == savings_path}" %>
         </li>
         <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link #{"border-bottom border-b-danger"if request.path == destroy_user_session_path}" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link #{"border-bottom border-b-secondary"if request.path == destroy_user_session_path}" %>
         </li>
 
 
