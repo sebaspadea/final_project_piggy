@@ -1,14 +1,14 @@
 <div class="container-fluid">
-<div class="row pl-2">
-  <div class="col-md-6">  
-    <div class="d-flex align-items-center">
-      <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
-      <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
-        Editar
-      </button>
+  <div class="row pl-2">
+    <div class="col-md-6">  
+      <div class="d-flex align-items-center">
+        <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+        <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
+          Editar
+        </button>
+      </div>
     </div>
   </div>
-</div>
   <% if @expenses.any? %>
     <div class="row my-3">
       <div class="col-md-6 my-2">

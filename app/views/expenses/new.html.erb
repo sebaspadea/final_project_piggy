@@ -4,7 +4,7 @@
         <h1>Agregar nuevo gasto</h1>
         <%= simple_form_for  @expense do |f| %>
           <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
-          <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
+          <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"1500", class: "exs" %>
           <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
           <div class="d-inline-flex">
           <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
