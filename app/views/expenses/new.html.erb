@@ -8,11 +8,6 @@
           <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
           <div class="d-inline-flex">
           <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
-          <% if current_user.pluggy_item_id.nil? %>
-            <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#NuevoBanco">
-              Nuevo banco
-            </button>
-          <% end %>
           <% unless current_user.pluggy_item_id.nil? %>
             <%= link_to "Actualizar Gastos", synk_bank_path, class: "animated-button-pink thar-four ml-2 p-1" %>
           <% end %>
