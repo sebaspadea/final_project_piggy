@@ -1,4 +1,4 @@
 meta_product_name: "Piggy"
 meta_title: "Piggy - Tu nueva forma de ahorrar."
 meta_description: "Piggy es la nueva forma de ahorrar, automática, simple y segura."
-meta_image: "piggy.png" # debería existir en `app / assets / images /`
+meta_image: "piggy-meta.png" # debería existir en `app / assets / images /`
