@@ -8,6 +8,11 @@
   text-align: center;
   padding-top: 30vh;
   background-image: image-url("piggy-coin.png");;
+  background-size: cover;
+  object-fit: cover;
+  @media screen {
+    
+  }
 }
 
 .experience-title{
