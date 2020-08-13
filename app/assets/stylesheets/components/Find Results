@@ -1,0 +1,73 @@
+Searching 190 files for "card-body"
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/views/expenses/new.html.erb:
+   27            <h4 class="text-center">Sincroniza tu cuenta bancaria con Piggy</h4>
+   28          </div>
+   29:         <div class="card-body px-2">
+   30            <div class="d-flex align-items-center justify-content-around p-2">
+   31              <button type="button" class="btn btn-outline-danger thar-four ml-2 p-1" data-toggle="modal" data-target="#NuevoBanco">
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/views/pages/home.html.erb:
+   47                  <div class="card h-100">
+   48                    <img src="https://mk0zezosobuapu92jg73.kinstacdn.com/wp-content/themes/Dcom/images/calculator-hero.png" class="card-img-top py-5" alt="...">
+   49:                   <div class="card-body">
+   50                      <h5 class="card-title">Hacer un seguimiento de tus compras</h5>
+   51                      <p class="card-text text-center">Cargas todas tus compras y nosotros te las mostramos de una manera sencilla.</p>
+   ..
+   56                  <div class="card h-100">
+   57                    <img src="https://static.vecteezy.com/system/resources/previews/000/378/512/non_2x/percentage-vector-icon.jpg" class="card-img-top" alt="...">
+   58:                   <div class="card-body">
+   59                      <h5 class="card-title">Elegir un porcentaje de cuanto queres ahorrar!</h5>
+   60                      <p class="card-text text-center">10%? 15%? 20%? Escribí cuanto y nosotros te decimos cuanta plata guardar en tu chanchito.</p>
+   ..
+   65                  <div class="card h-100">
+   66                    <img src="https://blog.axend.io/wp-content/uploads/2019/04/ahorro-Caja-Manzanillo.png" class="card-img-top" alt="...">
+   67:                   <div class="card-body">
+   68                      <h5 class="card-title">Ahorrar!</h5>
+   69                      <p class="card-text text-center">A partir del porcentaje que estableciste, se te guardará dinero en un chanchito virtual, podés establecer un objetivo y cuando el chanchito este lleno romperlo!</p>
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/views/savings/index.html.erb:
+   13              <h1 class="card-title text-center"><%= @saving.goal_description%></h1>
+   14            </div>
+   15:           <div class="card-body">
+   16              <% if @savings.last.progress > 0 %>
+   17                <div class="progress" id="progress-ahorros">
+   ..
+   38              </div>
+   39            </div>
+   40:           <div class="card-body">
+   41              <p>OBJETIVO: $<%= @saving.goal%></p>
+   42              <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
+   ..
+   61              </div>
+   62            </div>
+   63:           <div class="card-body">
+   64                <% @savings.reverse.each do |saving| %>
+   65                  <% if saving.status == "Open" %>
+
+/home/eugenio/code/sebaspadea/final_project_piggy/app/views/users/show.html.erb:
+   17              <h5>Resumen de gastos</h5>
+   18            </div>
+   19:           <div class="card-body">
+   20                <ul class="nav list-inline tabs-underlined  mb-3 " id="tabs-underlined" role="tablist">
+   21                  <li class="nav-item">
+   ..
+   48              <h5>Piggy Tip del día</h5>
+   49            </div>
+   50:           <div class="card-body p-2">
+   51              <h5 class="card-title">Qué es una acción?</h5>
+   52              <p>Una acción es un activo financiero que representa una parte alícuota del capital social de una sociedad anónima (S.A).</p>
+   ..
+   61              </div>
+   62            </div>
+   63:           <div class="card-body">
+   64              <% if @savings.any? %>
+   65                <% if @savings.last.status == "Open" %>
+   ..
+   98            </div>
+   99          </div>
+  100:         <div class="card-body">
+  101            <% if @expenses.any? %>
+  102              <% @expenses.last(5).each do |expense| %>
+
+11 matches across 4 files
