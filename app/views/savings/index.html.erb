@@ -7,10 +7,17 @@
     <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient" %>
   <% else %>
     <div class="row my-3">
+      <div class="col-md-12">
+      <div class="show-banner my-3 rounded">
+          <h2 class="experience-title"><%= @saving.goal_description %></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            <h1 class="card-title text-center"><%= @saving.goal_description%></h1>
+            <h5 class="card-title text-center">Tu progreso</h5>
           </div>
           <div class="card-body">
             <% if @savings.last.progress > 0 %>
@@ -40,7 +47,8 @@
           </div>
           <div class="card-body">
             <p>OBJETIVO: $<%= @saving.goal%></p>
-            <p> TOTAL AHORRADO $<%= @saving.total_amount%> </p>
+            <p> TOTAL AHORRADO: $<%= @saving.total_amount%> </p>
+            <p> PORCENTAJE DE AHORRO:  <%= current_user.saving_percentage %>% </p>
             <% if @saving.total_amount == @saving.goal  %>
               <p>Felicitaciones, llegaste a tu objetivo! Ya puedes romper tu chanchito!!</p>
               <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger", id: "RomperChanchito" %>
@@ -58,11 +66,11 @@
         <div class="card">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
-              <h6 class="mt-2">Todos mis chanchitos</h6>
+              <h6 class="mt-2">Tus ultimos chanchitos</h6>
             </div>
           </div>
           <div class="card-body">
-              <% @savings.reverse.each do |saving| %>
+              <% @savings.last(5).reverse.each do |saving| %>
                 <% if saving.status == "Open" %>
                 <div class="my-2 p-2 border rounded-lg">
                   <div class="d-flex align-items-center justify-content-between mx-2">
