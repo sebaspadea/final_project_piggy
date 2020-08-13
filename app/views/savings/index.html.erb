@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid back py-5">
   <% if @savings.empty? %>
-    <h1>Aun no tienes ningun chanchito, crealo</h1>
+    <h1>Aun no tienes ningun chanhito, crealo</h1>
     <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient"  %>
   <% elsif !@savings.empty? && @saving.status != "Open" %>
     <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
@@ -25,15 +25,16 @@
                 <div class="progress-done" data-done="<%= @savings.last.progress %>">
                   <% if @savings.last.progress >= 100 %>
                     <%= "Felicitaciones llegaste a tu objetivo!" %>
-                  <% else %>  
+                  <% else %>
                     <%= @savings.last.progress %>%
                   <% end %>
                 </div>
-              </div>     
-            <% end %> 
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
@@ -60,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="row my-3">
+    <div class="row my-3 ">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
