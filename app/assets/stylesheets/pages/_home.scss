@@ -29,7 +29,7 @@
 
 .primera-vista {
   h1 {
-      font-family: "Work Sans";
+      font-family: 'Work Sans';
       font-style: normal;
       font-weight: 800;
       font-size: 80px;
@@ -40,11 +40,11 @@
 
       p {
         width: 400px;
-        height: 200px;
+        height: 140px;
         left: 148px;
         top: 369px;
 
-        font-family: Poppins;
+
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
@@ -85,9 +85,9 @@
 .segunda-vista {
 
     h2 {
-      font-family: "Work Sans";
+
       font-style: normal;
-      font-weight: 800;
+
       font-size: 40px;
       line-height: 110%;
       margin-top: 90px;
@@ -107,9 +107,9 @@
 
         h3 {
 
-          font-family: "Work Sans";
+
           font-style: normal;
-          font-weight: 800;
+
           font-size: 20px;
           line-height: 110%;
 
@@ -118,7 +118,7 @@
         p {
 
 
-          font-family: "Poppins";
+
           font-style: normal;
           font-weight: normal;
           font-size: 18px;
@@ -134,9 +134,9 @@
 .contacto-vista {
 
   h3 {
-    font-family: "Work Sans";
+
     font-style: normal;
-    font-weight: 800;
+
     font-size: 40px;
     line-height: 110%;
   };
@@ -146,7 +146,7 @@
     left: 148px;
     top: 369px;
 
-    font-family: "Poppins";
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -159,5 +159,19 @@
 
     color: #4B5D68;
   };
+}
+
+.contacto-background {
+
+  background-image: image-url("Ola-Footer.png");
+  background-size: 105% 105%;
+  background-position: top center;
+
+}
+
+@media (max-width: 576px) {
+  .home-background {
+
+  }
 }
 
