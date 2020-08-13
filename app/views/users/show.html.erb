@@ -1,6 +1,6 @@
 <div class="container-fluid">
 <div class="row pl-2">
-  <div class="col-md-6">  
+  <div class="col-md-6">
     <div class="d-flex align-items-center">
       <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
       <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#staticBackdrop">
@@ -43,9 +43,12 @@
         </div>
       </div>
       <div class="col-md-6 border-left-dark my-1">
-        <div class="card">
+        <div class="card1">
           <div class="card-header">
-            <h5>Piggy Tip del día</h5>
+            <div class="d-flex align-items-center">
+              <%= image_tag "logoRosa.png", class: "logoRosa" %>
+              <h5>Piggy Tip </h5>
+            </div>
           </div>
           <div class="card-body p-2">
             <h5 class="card-title">Qué es una acción?</h5>
@@ -69,7 +72,7 @@
                     <div class="progress-done" data-done="<%= @savings.last.progress %>">
                       <% if @savings.last.progress >= 100 %>
                         <%= "Felicitaciones llegaste a tu objetivo!" %>
-                      <% else %>  
+                      <% else %>
                         <%= @savings.last.progress %>%
                       <% end %>
                     </div>

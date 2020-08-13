@@ -24,6 +24,7 @@
 .card-header {
   background-color: #f0efef;
   color: rgb(37, 37, 37);
+
   .btnAnimation {
     background: lighten(#F3F0FE, 3%);
     border: 1px solid darken(#E64967, 4%);
@@ -33,7 +34,7 @@
     padding: 4px;
     color: #E64967;
     font-size: 12px;
-  
+
     // border-radius: 50px;
   }
   .btnAnimation:hover {
@@ -55,7 +56,7 @@
     font-size: 12px;
     // border-radius: 50px;
   }
-  
+
   .btnFullPink:hover {
     background: darken(#F7F7F7, 1.5%);
     border: 1px solid rgba(#000, .05);
