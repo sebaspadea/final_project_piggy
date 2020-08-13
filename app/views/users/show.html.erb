@@ -6,7 +6,7 @@
 
     <div class="col-md-6">
       <div class="d-flex align-items-center">
-        <h1 class="text-center my-4">Hola <%= @user.username.capitalize %></h1>
+        <h1 class="text-center my-4">Hola <span id="nickname"><%= @user.username.capitalize %></span>, que bueno volver a verte!</h1>
           <a href="#" class="my-2 ml-2" data-toggle="modal" data-target="#staticBackdrop">
             <i class="fas fa-cog" id="icono-perfil-ruedita"></i>
           </a>
@@ -51,12 +51,12 @@
         <div class="card1">
           <div class="card-header">
             <div class="d-flex align-items-center">
-              <%= image_tag "logoRosa.png", class: "logoRosa" %>
+              <%= image_tag "logoBlanco.png", class: "logoRosa" %>
               <h5 id="h5-piggyTip">Piggy Tip </h5>
             </div>
           </div>
           <div class="card-body p-2">
-            <h6 class="card-title" id="piggy-pregunta">Qué es una acción?</h6>
+            <h6 class="text-uppercase" id="piggy-pregunta">Qué es una acción?</h6>
             <p class="piggy-respuesta">Una acción es un activo financiero que representa una parte alícuota del capital social de una sociedad anónima (S.A).</p>
             <p class="piggy-respuesta">Al adquirir acciones se reciben unos derechos sobre la empresa y se obtiene la categoría de socio. De esta forma el comprador de la acción se convierte en dueño de la empresa en una proporción acorde a las acciones que hayamos comprado.</p>
           </div>
@@ -68,15 +68,15 @@
               <%= link_to "Ver", savings_path, class:"btn btnFullPink btn-sm text-decoration-none"%>
             </div>
           </div>
-          <div class="card-body">
+          <div class="card-body d-flex align-items-center">
             <% if @savings.any? %>
               <% if @savings.last.status == "Open" %>
-                <h2 class="card-title align-self-center text-center"><%= @savings.last.goal_description %></h2>
+                <h2 class="flex-grow-1 text-uppercase p-2 font-weight-bold" id="goal-perfil"><%= @savings.last.goal_description %></h2>
                 <% if @savings.last.progress > 0 %>
                   <div class="progress">
                     <div class="progress-done" data-done="<%= @savings.last.progress %>">
                       <% if @savings.last.progress >= 100 %>
-                        <%= "Felicitaciones llegaste a tu objetivo!" %>
+                        <span class="objetivo-logrado" id="Done-show"><%= "Felicitaciones llegaste a tu objetivo!" %></span>
                       <% else %>
                         <%= @savings.last.progress %>%
                       <% end %>
@@ -84,12 +84,16 @@
                   </div>
                 <% end %>
               <% else %>
-                <h5 class="card-title">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
-                <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
+                <div class="justify-content-between">
+                  <h5 class="mr-5">Todos tus canchitos estan rotos, crea uno nuevo!</h5>
+                  <%= link_to "Crear!", new_saving_path, class:"animated-button-blue thar-four card-title text-center" %>
+                </div>
               <% end %>
             <% else %>
-              <h5 class="card-title">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
-              <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient card-title" %>
+              <div class="justify-content-between">
+                <h5 class="mr-5">Aun no creaste ningun chanchito, crea uno nuevo!</h5>
+                <%= link_to "Crear!", new_saving_path, class:"animated-button-blue thar-four card-title text-center" %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -102,7 +106,7 @@
         <div class="card-header">
           <div class="d-flex align-items-center justify-content-between">
             <h5 class="mt-2">Mis ultimos gastos</h5>
-            <%= link_to "+", expenses_path, class:"btn btnAnimation btn-sm text-decoration-none"%>
+            <%= link_to " + ", expenses_path, class:"btn btnFullPink btn-sm text-decoration-none p-1"%>
           </div>
         </div>
         <div class="card-body">
@@ -125,11 +129,11 @@
                     <% end %>
                       <div class="box-c d-flex justify-content-between p-2">
                         <div class="card-product-infos">
-                          <h2><%= number_to_currency(expense.amount) %></h2>
+                          <h2 class="currency"><%= number_to_currency(expense.amount) %></h2>
                           <p class="description"><%= expense.description.capitalize %></p>
                         </div>
                         <div class="hora">
-                           <p class="card-title font-weight-lighter">Ahorrado $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+                           <p class="ahorrado">+ $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
                         </div>
                       </div>
                   </div>

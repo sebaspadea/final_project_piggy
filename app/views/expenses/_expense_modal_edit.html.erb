@@ -15,6 +15,7 @@
                 <div class="col-md-6">
                   <%= f.input :category,
                     hint: "Dejalo en blanco si no queres editar",
+                    collection: Expense::CATEGORY,
                     required: false,
                     input_html: { autocomplete: "Categoria" } %>
                 </div>
