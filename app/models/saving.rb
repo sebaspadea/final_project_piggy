@@ -6,6 +6,6 @@ class Saving < ApplicationRecord
   validates :goal_description, length: { maximum: 50 }
 
   def progress
-    ((total_amount / goal.to_f) * 100).round(2)
+    ((total_amount / goal.to_f) * 100).round
   end
 end

@@ -28,20 +28,30 @@ body {
 
 #h5-piggyTip{
   margin-bottom: 0;
-  font-weight: 600;
+  font-weight: 900;
+  color: white;
 }
 
 #piggy-pregunta {
-  font-weight: 700;
-  color: #E64666;
-
+  font-weight: 800;
+  color: #E64665;
+  padding: 4px;
 }
 
 .piggy-respuesta {
-  font-weight: 600;
-  font-style: italic;
+  font-weight: bolder;
+  padding: 4px;
+  font-size: 18px;
 }
 
 h5{
   font-weight: 600;
+}
+
+#goal-perfil{
+  font-size: larger;
+}
+
+#nickname {
+  color: #EB758C;
 }

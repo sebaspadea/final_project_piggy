@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-3">
   <% if current_user.savings.empty? %>
     <h1>Aun no tienes ningun chanchito, crea uno nuevo!</h1>
   <% elsif !current_user.savings.empty? && current_user.savings.last.status != "Open" %>

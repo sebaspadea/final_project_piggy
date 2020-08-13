@@ -1,5 +1,6 @@
 <div class="container py-5 ">
   <div class="col-sm-12 col-md-8 offset-md-2" >
+  <h2 class="agregar-gasto my-3">Mis gastos</h2>
     <div class="cards">
       <% if @expenses.any? %>
         <% @expenses.reverse.each do |expense| %>
@@ -20,7 +21,7 @@
               <% end %>
                 <div class="box-c d-flex justify-content-between p-2">
                   <div class="card-product-infos">
-                    <h2><%= number_to_currency(expense.amount) %></h2>
+                    <h2 class="currency"><%= number_to_currency(expense.amount) %></h2>
                     <p class="description"><%= expense.description.capitalize %></p>
                   </div>
 
