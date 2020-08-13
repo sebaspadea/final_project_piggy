@@ -6,18 +6,20 @@
     <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
     <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient" %>
   <% else %>
-    <div class="row my-3">
+    <div class="row mb-3">
       <div class="col-md-12">
       <div class="show-banner my-3 rounded">
-          <h2 class="experience-title"><%= @saving.goal_description %></h2>
-        </div>
+      </div>
       </div>
     </div>
     <div class="row my-3">
-      <div class="col-md-6">
+      <div class="col-md-6 my-3">
         <div class="card">
           <div class="card-header">
-            <h5 class="card-title text-center">Tu progreso</h5>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="card-title"><%= @saving.goal_description %></h5>
+              <h6> Porcentaje de ahorro:  <%= current_user.saving_percentage %>% </h6>
+            </div>
           </div>
           <div class="card-body">
             <% if @savings.last.progress > 0 %>
@@ -35,11 +37,11 @@
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 my-3">
         <div class="card">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
-              <h5>Detalles</h5>
+              <h5 class="card-title">Detalles</h5>
               <button type="button" class="btn btnAnimation btn-sm" data-toggle="modal" data-target="#staticBackdrop">
                   Editar
               </button>
@@ -48,7 +50,6 @@
           <div class="card-body">
             <p>OBJETIVO: $<%= @saving.goal%></p>
             <p> TOTAL AHORRADO: $<%= @saving.total_amount%> </p>
-            <p> PORCENTAJE DE AHORRO:  <%= current_user.saving_percentage %>% </p>
             <% if @saving.total_amount == @saving.goal  %>
               <p>Felicitaciones, llegaste a tu objetivo! Ya puedes romper tu chanchito!!</p>
               <%= link_to "Romper Chanchito", break_chanchito_path, method: :patch, data: { confirm: "Estas seguro?"}, class: "btn btn-outline-danger", id: "RomperChanchito" %>
@@ -65,7 +66,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <%= image_tag "logoRosa.png", class: "logoRosa" %>
               <h6 class="mt-2">Tus ultimos chanchitos</h6>
             </div>
           </div>
