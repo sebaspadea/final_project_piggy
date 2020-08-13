@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   patch "savings/break", to: "savings#break_chanchito", as: :break_chanchito
   get 'user/edit', to: 'users#edit'
   patch 'user', to: 'users#update'
-
+  post "create_bank", to: "expenses#create_bank"
+  get "sync_bank_account", to: "expenses#sync_bank_account", as: :synk_bank
+  
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.present? } do
     mount Sidekiq::Web => '/sidekiq'

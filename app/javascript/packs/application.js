@@ -31,23 +31,21 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  $(".alert").fadeOut(2000 );
-  //$('.collapseGraficos').collapse({
-    //toggle: false
-  //})
+  initUpdateNavbarOnScroll();
+
+  $(".alert").fadeOut(4000 );
+  
   const progress = document.querySelector('.progress-done');
-
-  setTimeout(() => {
-    progress.style.opacity = 1;
-    progress.style.width = progress.getAttribute('data-done') + '%';
-  }, 500)
+  if(progress){
+    setTimeout(() => {
+      progress.style.opacity = 1;
+      progress.style.width = progress.getAttribute('data-done') + '%';
+    }, 500);
+  }
 });
-
 
 
 

@@ -2,4 +2,4 @@
 
 Tus gastos semanales son:
 
-
+<%= number_to_currency(@user.expenses.sum(&:amount)) %>

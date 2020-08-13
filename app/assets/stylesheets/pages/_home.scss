@@ -1,4 +1,26 @@
 // Specific CSS for your home-page
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  width:100%;
+
+}
+@media (max-width: 576px) {
+  svg {
+    width:230%;
+  }
+
+}
+
+
+
+
+
+
+
+
 .primera-vista {
   h1 {
       font-family: "Work Sans";
@@ -6,11 +28,12 @@
       font-weight: 800;
       font-size: 80px;
       line-height: 110%;
+      color: white;
       /* or 88px */
       }
 
       p {
-        width: 224px;
+        width: 400px;
         height: 200px;
         left: 148px;
         top: 369px;
@@ -26,15 +49,25 @@
 
         /* 1 */
 
-        color: #4B5D68;
+        color: white;
       }
-  .img1 {
 
+      @media (max-width: 576px) {
+        p {
+        width: auto;
+      } }
+
+  .img1 {
     width: 100%;
     height: auto;
-
-
   }
+  @media (max-width: 576px) {
+  .img1 {
+    width:100%;
+  }
+
+}
+
 }
 
 .separador-verde {
@@ -51,7 +84,7 @@
       font-weight: 800;
       font-size: 40px;
       line-height: 110%;
-      margin-top: 70px;
+      margin-top: 90px;
       /* or 88px */
       }
 

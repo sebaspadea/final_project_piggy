@@ -1,29 +1,45 @@
-<div class="container">
-
-    <div class="row primera-vista py-5 align-items-center">
-      <div class="col-7 col-md-6">
-        <div class="info">
-          <h1>Piggy</h1>
-          <br>
-          <p>Somos una plataforma que busca ayudarte a ahorrar dinero de una forma  automatica, simple y segura.
-          Descubri una nueva forma de ahorrar!</p>
-          <%= link_to "Registrate!", new_user_registration_path , class: "bt animated-button-pink thar-four" %>
+<div class="position-relative">
+  <svg  viewBox="0 0 1448 828" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d)">
+    <path d="M1034 90C1267.66 27.246 1384.67 172 1444 90V0H4V820C228 506 454 710 644 644C834 578 684 184 1034 90Z" fill="#2D2463"/>
+    </g>
+      <filter id="filter0_d" x="0" y="0" width="1448" height="828" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dy="4"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+      </filter>
+  </svg>
+    <div class="container">
+      <div class="row primera-vista py-5 align-items-center">
+          <div class="col-12 col-md-5 ">
+            <div class="info">
+              <h1>Piggy</h1>
+              <br>
+              <p>Somos una plataforma que busca ayudarte a ahorrar dinero de una forma  automática, simple y segura.
+              Descubrí una nueva forma de ahorrar!</p>
+              <%= link_to "Registrate!", new_user_registration_path , class: "bt animated-button-pink thar-four", id:"btn-home" %>
+            </div>
+          </div>
+          <div class="col-12 col-md-7 ">
+            <%= image_tag "piggy3.png", class: "img1" %>
+          </div>
         </div>
-      </div>
-      <div class="col-5 col-md-6">
-        <img src="https://icons-for-free.com/iconfiles/png/512/finance+icicle+piggy+bank-131979031585103517.png" alt="" class="img1">
-      </div>
     </div>
-
 </div>
 
-<div class="separador-verde"></div>
+
+
+
 
 <div class="position-relative">
   <%= render('shared/wave') %>
     <div class="container">
       <div class="segunda-vista">
-        <h2>Que podes lograr con Piggy?</h2>
+        <h2>Que podés lograr con Piggy?</h2>
         <br>
           <div class="cards text-center">
             <div class="row row-cols-1 row-cols-md-3 py-5">
@@ -32,7 +48,7 @@
                   <img src="https://mk0zezosobuapu92jg73.kinstacdn.com/wp-content/themes/Dcom/images/calculator-hero.png" class="card-img-top py-5" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Hacer un seguimiento de tus compras</h5>
-                    <p class="card-text text-center">Cargas todas tus compras y nosotros te las mostramos de una manera sencilla</p>
+                    <p class="card-text text-center">Cargas todas tus compras y nosotros te las mostramos de una manera sencilla.</p>
                   </div>
                 </div>
               </div>
@@ -41,7 +57,7 @@
                   <img src="https://static.vecteezy.com/system/resources/previews/000/378/512/non_2x/percentage-vector-icon.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Elegir un porcentaje de cuanto queres ahorrar!</h5>
-                    <p class="card-text text-center">10%? 15%? 20%? Escribi cuanto y nosotros te decimos cuanta plata guardar en tu chanchito</p>
+                    <p class="card-text text-center">10%? 15%? 20%? Escribí cuanto y nosotros te decimos cuanta plata guardar en tu chanchito.</p>
                   </div>
                 </div>
               </div>
@@ -50,7 +66,7 @@
                   <img src="https://blog.axend.io/wp-content/uploads/2019/04/ahorro-Caja-Manzanillo.png" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Ahorrar!</h5>
-                    <p class="card-text text-center">A partir del porcentaje que estableciste, se te guardara dinero en un chanchito virtual, podes establecer un objetivo y cuando el chanchito este lleno romperlo!</p>
+                    <p class="card-text text-center">A partir del porcentaje que estableciste, se te guardará dinero en un chanchito virtual, podés establecer un objetivo y cuando el chanchito este lleno romperlo!</p>
                   </div>
                 </div>
               </div>
@@ -70,9 +86,8 @@
   <div class="contacto-vista py-5">
     <div class="info">
       <h3>Contactanos</h3>
-      <p>Descripcion</p>
+      <p>Descripción</p>
       <form>
-
         <div class="form-group">
           <label for="exampleInputName1">Nombre completo</label>
           <input type="name" class="form-control" id="exampleInputName1" placeholder="Ingresa tu nombre">
@@ -80,12 +95,12 @@
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email">
-          <small id="emailHelp" class="form-text text-muted">Esta informacion es privada para tu seguridad.</small>
+          <small id="emailHelp" class="form-text text-muted">Esta información es privada para tu seguridad.</small>
         </div>
-         <div class="form-group">
-          <label for="exampleInputEmail1">Telefono</label>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Teléfono</label>
           <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Ingresa tu telefono">
-          <small id="emailHelp" class="form-text text-muted">Esta informacion es privada para tu seguridad.</small>
+          <small id="emailHelp" class="form-text text-muted">Esta información es privada para tu seguridad.</small>
         </div>
 
         <button type="submit" class=" animated-button-blue thar-four">Enviar</button>

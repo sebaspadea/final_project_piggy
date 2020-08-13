@@ -1,20 +1,107 @@
 <div class="container py-5">
-  <% if current_user.savings.empty? %>
-    <h1>Aun no tienes ningun chanchito, crealo</h1>
-    <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient"  %>
-  <% elsif !current_user.savings.empty? && current_user.savings.last.status != "Open" %>
-    <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
-    <%= link_to "Crear!", new_saving_path, class:"btn btn-gradient" %>
-  <% else %>
-    <h1>Agregar nuevo gasto</h1>
-    <%= simple_form_for  @expense do |f| %>
-      <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
-      <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
-      <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
-      <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
-    <% end %>
-    <div class="mt-2">
-      <%= link_to "Ir a mi perfil", user_path%>
+  <div class="row">
+    <div class="col-md-12 mx-2 mr-4">
+        <h1>Agregar nuevo gasto</h1>
+        <%= simple_form_for  @expense do |f| %>
+          <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
+          <%= f.input :amount,  :label => "Ingresa cuanto gastaste",placeholder:"Ingresa cuanto gastaste", class: "exs" %>
+          <%= f.input :description,  :label => "Descripcion del gasto", placeholder:"Descripcion del gasto", class: "exs" %>
+          <div class="d-inline-flex">
+          <button type="submit" class=" animated-button-blue thar-four" data-disable-with="Agregar">Agregar</button>
+          <% if current_user.pluggy_item_id.nil? %>
+            <button type="button" class="animated-button-pink thar-four ml-2 p-1" data-toggle="modal" data-target="#NuevoBanco">
+              Nuevo banco
+            </button>
+          <% end %>
+          <% unless current_user.pluggy_item_id.nil? %>
+            <%= link_to "Actualizar Gastos", synk_bank_path, class: "animated-button-pink thar-four ml-2 p-1" %>
+          <% end %>
+          </div>
+        <% end %>
+    </div>
   </div>
-  <% end %>
+  <div class="row my-5">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header px-2">
+          <h4 class="text-center">Sincroniza tu cuenta bancaria con Piggy</h4>
+        </div>
+        <div class="card-body px-2">
+          <div class="d-flex align-items-center justify-content-around p-2">
+            <button type="button" class="btn btn-outline-danger thar-four ml-2 p-1" data-toggle="modal" data-target="#NuevoBanco">
+              Pluggy
+            </button>
+            <button class="btn border-rounded ml-2 bg-white" data-toggle="modal" data-target="#NuevoBancoBBVA">
+              <%= image_tag("bbva_logo-96x96.png") %>
+            </button>
+            <button type="button" class="btn border-rounded ml-2 bg-white" data-toggle="modal" data-target="#NuevoBancoSantander">
+              <%= image_tag("santander_logo-96x96.png")%>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-2 ml-3">
+    <%= link_to "Ir a mi perfil", user_path%>
+  </div>
+</div>
+
+
+<div class="modal fade" id="NuevoBanco" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticNuevoBanco" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticNuevoBanco">Pluggy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="pluggy">
+        <div class="container text-center">
+          <%= simple_form_for :bank, url: create_bank_path do |f| %>
+                <%= f.input :user, label: "Usuario" %>
+                <%= f.input :password, label: "Contraseña" %>
+                <%= f.submit "Agregar banco", class:"btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="NuevoBancoBBVA" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticNuevoBancoBBVA" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticNuevoBancoBBVA">BBVA Francés</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="bbva">
+        <div class="container text-center">
+          <h3>Aún no disponible</h3>
+          <p>Próximamente podrás acceder a tu cuenta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="NuevoBancoSantander" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticNuevoBancoSantander" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticNuevoBancoSantander">Santander Rio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="santander">
+        <div class="container text-center">
+          <h3>Aún no disponible</h3>
+          <p>Próximamente podrás acceder a tu cuenta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
