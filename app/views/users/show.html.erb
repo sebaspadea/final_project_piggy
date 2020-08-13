@@ -6,7 +6,7 @@
 
     <div class="col-md-6">
       <div class="d-flex align-items-center">
-        <h1 class="text-center my-4">Bienvenido <%= @user.username.capitalize %></h1>
+        <h1 class="text-center my-4">Hola <%= @user.username.capitalize %></h1>
           <a href="#" class="my-2 ml-2" data-toggle="modal" data-target="#staticBackdrop">
             <i class="fas fa-cog" id="icono-perfil-ruedita"></i>
           </a>
@@ -52,20 +52,20 @@
           <div class="card-header">
             <div class="d-flex align-items-center">
               <%= image_tag "logoRosa.png", class: "logoRosa" %>
-              <h5>Piggy Tip </h5>
+              <h5 id="h5-piggyTip">Piggy Tip </h5>
             </div>
           </div>
           <div class="card-body p-2">
-            <h5 class="card-title">Qué es una acción?</h5>
-            <p>Una acción es un activo financiero que representa una parte alícuota del capital social de una sociedad anónima (S.A).</p>
-            <p>Al adquirir acciones se reciben unos derechos sobre la empresa y se obtiene la categoría de socio. De esta forma el comprador de la acción se convierte en dueño de la empresa en una proporción acorde a las acciones que hayamos comprado.</p>
+            <h6 class="card-title" id="piggy-pregunta">Qué es una acción?</h6>
+            <p class="piggy-respuesta">Una acción es un activo financiero que representa una parte alícuota del capital social de una sociedad anónima (S.A).</p>
+            <p class="piggy-respuesta">Al adquirir acciones se reciben unos derechos sobre la empresa y se obtiene la categoría de socio. De esta forma el comprador de la acción se convierte en dueño de la empresa en una proporción acorde a las acciones que hayamos comprado.</p>
           </div>
         </div>
         <div class="card my-3">
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
-              <h6 class="mt-2">Chanchito Actual</h6>
-              <%= link_to "Ver mis ahorros", savings_path, class:"btn btnFullPink btn-sm text-decoration-none"%>
+              <h5 class="mt-2">Chanchito Actual</h5>
+              <%= link_to "Ver", savings_path, class:"btn btnFullPink btn-sm text-decoration-none"%>
             </div>
           </div>
           <div class="card-body">
@@ -101,8 +101,8 @@
       <div class="card">
         <div class="card-header">
           <div class="d-flex align-items-center justify-content-between">
-            <h6 class="mt-2">Mis ultimos gastos</h6>
-            <%= link_to "Todos mis gastos", expenses_path, class:"btn btnAnimation btn-sm text-decoration-none"%>
+            <h5 class="mt-2">Mis ultimos gastos</h5>
+            <%= link_to "+", expenses_path, class:"btn btnAnimation btn-sm text-decoration-none"%>
           </div>
         </div>
         <div class="card-body">
