@@ -1,0 +1,19 @@
+.show-banner {
+  justify-content: space-around;
+  align-items: center;
+  background-position: center;
+  height: 430px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 30vh;
+  background-image: image-url("banner.png");
+}
+@media (max-width: 576px) {
+  .show-banner {
+    background-image: image-url("banner_1.png");
+    background-size: 100vw;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+  }
+}

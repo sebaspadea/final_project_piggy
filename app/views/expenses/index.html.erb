@@ -1,6 +1,58 @@
+<div class="container py-5 ">
+  <div class="col-sm-12 col-md-8 offset-md-2" >
+    <div class="cards">
+      <% if @expenses.any? %>
+        <% @expenses.reverse.each do |expense| %>
+          <div class="my-3">
+            <div class="card-product">
+              <% if expense.category == "Servicios" %>
+                <%= image_tag "servicios.png" %>
+              <%  elsif expense.category == "Otros"%>
+                <%= image_tag "otros.png" %>
+              <%  elsif expense.category == "Transporte"%>
+                <%= image_tag "transporte.png" %>
+              <%  elsif expense.category == "Entretenimiento"%>
+                <%= image_tag "entretenimiento.png" %>
+              <%  elsif expense.category == "Gastronomia"%>
+                <%= image_tag "comida.png" %>
+              <%  elsif expense.category == "Tarjeta de Crédito"%>
+                <%= image_tag "tarjeta.png" %>
+              <% end %>
+                <div class="box-c d-flex justify-content-between p-2">
+                  <div class="card-product-infos">
+                    <h2><%= number_to_currency(expense.amount) %></h2>
+                    <p class="description"><%= expense.description.capitalize %></p>
+                  </div>
 
+                  <div class="hora">
+                    <%= expense.created_at.strftime("%d-%m-%Y %H:%M")%>
+                    <a href="#" class="my-2 ml-2" data-toggle="modal" data-target="#expenseModal_<%= expense.id %>">
+                      <i class="fas fa-cog"></i>
+                    </a>
+                      <%= render "expense_modal_edit", expense: expense %>
+                  </div>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div>Aun no tienes gastos</div>
+      <% end %>
+    </div>
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="container py-5 row">
+  <div class="col-sm-12 col-md-8 offset-md-3" >
+=======
 <div class="container py-5 row">
   <div class="col-sm-12 col-md-8 offset-md-6" >
+>>>>>>> master
     <div class="cards">
       <% if @expenses.any? %>
         <% @expenses.each do |expense| %>
@@ -21,15 +73,4 @@
     </div>
     <%== pagy_bootstrap_nav(@pagy) %>
   </div>
-</div>
-
-
-
-<!--
-  <div class="record">
-    <div class="record__amount">900<span class="record__fadeout">,00</span></div>
-    <div class="record__caption">Rocker Creative</div>
-    <div class="record__date">27.10.2014</div>
-  </div> -->
-
-
+</div> -->
