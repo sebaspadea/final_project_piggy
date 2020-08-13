@@ -40,7 +40,7 @@
 
       p {
         width: 400px;
-        height: 200px;
+        height: 140px;
         left: 148px;
         top: 369px;
 
@@ -159,5 +159,19 @@
 
     color: #4B5D68;
   };
+}
+
+.contacto-background {
+
+  background-image: image-url("Ola-Footer.png");
+  background-size: 105% 105%;
+  background-position: top center;
+
+}
+
+@media (max-width: 576px) {
+  .home-background {
+
+  }
 }
 
