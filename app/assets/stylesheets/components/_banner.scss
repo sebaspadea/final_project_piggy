@@ -1,24 +1,19 @@
 .show-banner {
   justify-content: space-around;
-  background-size: cover;
   align-items: center;
   background-position: center;
-  height: 450px;
-  color: white;
+  height: 430px;
+  color: rgb(255, 255, 255);
   text-align: center;
   padding-top: 30vh;
-  background-image: image-url("piggy-coin.png");;
-  background-size: cover;
-  object-fit: cover;
-  @media screen {
-    
-  }
+  background-image: image-url("banner.png");
 }
-
-.experience-title{
-  font-family: "Roboto", serif;
-  font-size: 40px;
-  font-weight: 900;
-  color: rgba(233, 233, 233, 0.92);
-  text-align: center;
+@media (max-width: 576px) {
+  .show-banner {
+    background-image: image-url("banner_1.png");
+    background-size: 100vw;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+  }
 }
