@@ -1,5 +1,11 @@
 <h1>Hola <%= @user.username %></h1>
 
-Tus gastos semanales son:
+<p>Tus gastos semanales son:</p>
 
 <%= number_to_currency(@user.expenses.sum(&:amount)) %>
+
+<p>Tus ahorros semanales:</p>
+
+<%= number_to_currency(@user.savings.sum(&:total_amount)) %>
+
+
