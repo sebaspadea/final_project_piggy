@@ -1,6 +1,6 @@
 <div class="container py-5">
   <div class="row">
-    <div class="col-md-12 mx-2 mr-4">
+    <div class="col-sm-12 col-md-8 offset-md-2">
         <h1>Agregar nuevo gasto</h1>
         <%= simple_form_for  @expense do |f| %>
           <%= f.input :category, collection: Expense::CATEGORY,  :label => "En que gastaste?"%>
