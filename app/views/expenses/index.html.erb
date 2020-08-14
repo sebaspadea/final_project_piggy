@@ -21,7 +21,7 @@
               <% end %>
                 <div class="box-c d-flex justify-content-between p-2">
                   <div class="card-product-infos">
-                    <h2 class="currency"><%= number_to_currency(expense.amount) %></h2>
+                    <h2 class="currency"><%= number_to_currency(expense.amount, precision: 0) %></h2>
                     <p class="description"><%= expense.description.capitalize %></p>
                   </div>
 
