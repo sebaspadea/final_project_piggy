@@ -132,8 +132,9 @@
                           <h2 class="currency"><%= number_to_currency(expense.amount) %></h2>
                           <p class="description"><%= expense.description.capitalize %></p>
                         </div>
-                        <div class="hora">
+                        <div class="hora d-flex-column align-items-center">
                            <p class="ahorrado">+ $<%= ( expense.amount * @user.saving_percentage ) / 100 %></p>
+                           <p class="card-title text-center" id="Ahorrado-abajo">Ahorrado</p>
                         </div>
                       </div>
                   </div>
