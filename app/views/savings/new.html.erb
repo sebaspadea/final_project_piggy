@@ -5,7 +5,7 @@
     <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
   <% end %>
   <%= simple_form_for  @saving do |f| %>
-    <%= f.input :goal,  :label => "Cuanto dinero quieres ahorrar?",placeholder:"10000", class: "exs" %>
+    <%= f.input :goal,  :label => "Cuanto dinero quieres ahorrar?",placeholder:"Ejemplo: 10000", class: "exs" %>
     <%= f.input :goal_description,  :label => "Para que estás ahorrando?", placeholder:"Descripcion de la meta, máximo 50 carácteres.", class: "exs" %>
     <%= f.submit "Crear chanchito!", class:"btn btn-flat mr-3" %>
   <% end %>

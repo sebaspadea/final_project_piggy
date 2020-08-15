@@ -1,6 +1,6 @@
 <div class="container-fluid back py-5">
   <% if @savings.empty? %>
-    <h1>Aun no tienes ningun chanhito, crealo</h1>
+    <h1>Aun no tienes ningun chanchito, crealo</h1>
     <%= link_to "Crear!", new_saving_path, class:"animated-button-blue thar-four"  %>
   <% elsif !@savings.empty? && @saving.status != "Open" %>
     <h1>Todos tus chanchitos están rotos, crea uno nuevo!</h1>
