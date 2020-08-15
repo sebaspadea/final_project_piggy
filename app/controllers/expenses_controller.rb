@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   include Pagy::Backend
   skip_before_action :authenticate_user!
   def index
-    @pagy, @expenses = pagy(current_user.expenses.order(:created_at))
+    @pagy, @expenses = pagy(current_user.expenses.order(created_at: :desc))
   end
 
   def new
@@ -81,7 +81,7 @@ class ExpensesController < ApplicationController
       # transactions["results"] => array de hashes
       # usar p_client.transactions["results"].select { |t| ["Credit Card", "Transfer"].include?(t["category"])
       redirect_to expenses_path
-    end 
+    end
   end
 
   def sync_bank_account

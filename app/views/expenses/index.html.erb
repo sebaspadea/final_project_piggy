@@ -3,7 +3,7 @@
   <h2 class="agregar-gasto my-3">Mis gastos</h2>
     <div class="cards">
       <% if @expenses.any? %>
-        <% @expenses.reverse.each do |expense| %>
+        <% @expenses.each do |expense| %>
           <div class="my-3">
             <div class="card-product">
               <% if expense.category == "Servicios" %>
